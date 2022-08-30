@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Alert from 'react-bootstrap/Alert';
 import axios from 'axios';
 
 const Contact = () => {
@@ -41,55 +40,51 @@ const Contact = () => {
   };
 
   return (
-    <div className={'FormDonation'}>
-      <div className='Backround'>
-        <div className='FormPage'>
-          <form className='IngredientForm' onSubmit={ingredients}>
-            <h1 className='FormHeader'>Submit a query</h1>
-            <label>Header (*)</label>
-            <input
-              className='FormInput'
-              type='text'
-              required
-              minLength={3}
-              maxLength={20}
-              onChange={(e) => setHeader(e.target.value)}
-            />
-            <label>Email (*)</label>
-            <input
-              className='FormInput'
-              type='email'
-              required
-              onChange={(e) => setuserInput(e.target.value)}
-            />
+    <div className='ContactForm'>
+      <form className='IngredientForm' onSubmit={() => ingredients()}>
+        <h2 className='FormHeader'>Submit a query</h2>
+        <label>Header (*)</label>
+        <input
+          className='FormInput'
+          type='text'
+          required
+          minLength={3}
+          maxLength={20}
+          onChange={(e) => setHeader(e.target.value)}
+        />
+        <label>Email (*)</label>
+        <input
+          className='FormInput'
+          type='email'
+          required
+          onChange={(e) => setuserInput(e.target.value)}
+        />
 
-            <label>Body (*)</label>
-            <input
-              className='FormInput'
-              type='text'
-              required
-              onChange={(e) => setuserInput(e.target.value)}
-            />
-            <button
-              className='formSubmitButton'
-              type='submit'
-              disabled={isLoading}
-            >
-              {isLoading && <i className='fas fa-spinner fa-pulse' />}
-              {!isLoading && <p>Submit</p>}
-            </button>
-          </form>
-          <h4 className='physLocation'>
-            QA LONDON INTERNATIONAL HOUSE CENTRE E1W
-          </h4>
-          <h4 className='physLocation'>
-            1st Floor International House 1 St Katharines Way London E1W 1UN
-          </h4>
-          <h4 className='physLocation'>
-            Tel: 0345 074 7829 Fax: 0345 074 7830
-          </h4>
-        </div>
-      </div>
+        <label>Body (*)</label>
+        <input
+          className='FormInput'
+          type='text'
+          required
+          onChange={(e) => setuserInput(e.target.value)}
+        />
+        <button
+          className='formSubmitButton'
+          type='submit'
+          disabled={isLoading}
+        >
+          {isLoading && <i className='fas fa-spinner fa-pulse' />}
+          {!isLoading && 'Submit'}
+        </button>
+      </form>
+      <h4 className='physLocation'>
+        QA ltd.
+      </h4>
+      <h4 className='physLocation'>
+        1st Floor, International House, 1 St Katharines Way, London E1W 1UN
+      </h4>
+      <h4 className='physLocation'>
+        Tel: 0345 074 7829 | Fax: 0345 074 7830
+      </h4>
     </div>
   );
 };

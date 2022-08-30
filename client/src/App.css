@@ -6,23 +6,43 @@
   align-items: center;
   height: 100vh;
   overflow-y: auto;
-  background-color: #222;
-  color: #eee;
+  background-color: #002;
+  color: white;
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
   font-size: 1.5vw;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.4vw;
+  font-weight: 500;
+  text-align: center;
+}
+
+h4 {
+  color: springgreen;
+  font-size: 0.7vw;
+  margin: 0.4vw 0;
+  text-align: center;
 }
 
 p {
   font-size: 1vw;
 }
 
+label {
+  color: white;
+  font-size: 0.6vw;
+  margin: 0.7vw 0;
+}
+
 input {
   background: none;
-  border: 0.1vw solid #eee;
-  color: #eee;
+  border: 0.1vw solid white;
+  color: white;
   border-radius: 1vw;
   padding: 0.5vw 0.7vw;
   font-size: 0.7vw;
@@ -32,22 +52,27 @@ input:focus {
   outline: none;
 }
 
+input::placeholder {
+  color: white;
+}
+
 button {
-  font-size: 1vw;
+  font-size: 0.8vw;
   padding: 0.3vw 0.5vw;
-  background-color: #eee;
-  border: none;
+  background-color: white;
+  border: 0.1vw solid white;
   border-radius: 0.2vw;
-  color: #222;
+  color: #002;
 }
 
 button:hover {
-  background-color: #aaa;
+  background-color: darkgray;
+  cursor: pointer;
 }
 
 button:active {
-  background-color: #555;
-  color: #eee;
+  background-color: #002;
+  color: white;
 }
 
 /* Header */
@@ -58,7 +83,7 @@ button:active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 1vw 0;
+  margin: 0.5vw 0;
 }
 
 .nav {
@@ -80,93 +105,34 @@ button:active {
   width: 15vw;
 }
 
-.FormDonation {
-  background: #0e101c;
-  height: 56.2rem;
-  width: 100%;
-  display: inline-block;
+.searchButton {
+  margin-left: 0.5vw;
 }
 
-.Backround {
-  overflow: hidden;
+/* Contact Form */
+
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
 }
 
 .IngredientForm {
-  max-width: 350px;
-  min-width: 350px;
-  background: #0e101c;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  margin: 1vw 0;
 }
 
 .FormHeader {
-  font-weight: 100;
-  padding-bottom: 10px;
-  color: #2ed370;
-  border-bottom: 1px solid rgb(79, 98, 148);
-  text-align: center;
-}
-
-.FormInput {
-  display: block;
-  border-radius: 4px;
-  box-sizing: border-box;
-  width: 100%;
-  margin-bottom: 10px;
-  font-size: 14px;
-  border: 1px solid white;
-  padding: 10px 15px;
-}
-
-label {
-  color: white;
-  margin-bottom: 13px;
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 2;
-  text-align: left;
-  font-weight: 200;
-  display: block;
-}
-
-.formSubmitButton:focus {
-  outline: none !important;
-  border-color: #474343;
-  border-width: 2px;
-  box-shadow: 0 0 6px #2e2e2e;
-}
-
-.formSubmitButton:hover {
-  padding: 6px 18px;
-  transition: all 0.3s ease-out;
-  background-color: transparent;
-  color: #2ed370;
-  border-radius: 4px;
-  border: 2px solid var(--primary);
+  padding-bottom: 0.5vw;
+  border-bottom: 0.1vw solid skyblue;
 }
 
 .formSubmitButton {
-  margin-top: 10px;
-  border-radius: 4px;
-  outline: none;
-  border: none;
-  font-size: 18px;
-  width: 9rem;
-  color: #fff;
-  cursor: pointer;
-  background-color: var(--primary);
-  font-family: 'Arvo', sans-serif;
-}
-
-.physLocation {
-  color: #2ed370;
-  font-family: 'Arvo', sans-serif;
-  padding-bottom: 10px;
-  color: #2ed370;
-  padding-top: 10px;
-  text-align: center;
-  font-size: large;
-}
-
-.searchButton {
-  margin-left: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4vw;
+  margin-top: 1vw;
+  font-weight: 600;
 }

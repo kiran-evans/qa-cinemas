@@ -2,10 +2,62 @@
 
 .App {
   display: flex;
-  justify-content: center;
-  height: 100vw;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
   overflow-y: auto;
   background-color: #222;
   color: #eee;
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input {
+  background: none;
+  border: 0.1vw solid #eee;
+  color: #eee;
+  border-radius: 1vw;
+  padding: 0.5vw 0.7vw;
+  font-size: 0.7vw;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  font-size: 0.7vw;
+  padding: 0.3vw 0.5vw;
+  background-color: #eee;
+  border: none;
+  border-radius: 0.2vw;
+  color: #222;
+}
+
+button:hover {
+  background-color: #aaa;
+}
+
+button:active {
+  background-color: #555;
+  color: #eee;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.searchInput {
+  width: 10vw;
+  transition-duration: .5s;
+}
+
+.searchInput:focus {
+  width: 15vw;
+}
+
+.searchButton {
+  margin-left: 0.5vw;
 }

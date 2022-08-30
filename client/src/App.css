@@ -58,6 +58,93 @@ button:active {
   width: 15vw;
 }
 
+.FormDonation {
+  background: #0e101c;
+  height: 56.2rem;
+  width: 100%;
+  display: inline-block;
+}
+
+.Backround {
+  overflow: hidden;
+}
+
+.IngredientForm {
+  max-width: 350px;
+  min-width: 350px;
+  background: #0e101c;
+  display: inline-block;
+}
+
+.FormHeader {
+  font-weight: 100;
+  padding-bottom: 10px;
+  color: #2ed370;
+  border-bottom: 1px solid rgb(79, 98, 148);
+  text-align: center;
+}
+
+.FormInput {
+  display: block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border: 1px solid white;
+  padding: 10px 15px;
+}
+
+label {
+  color: white;
+  margin-bottom: 13px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 2;
+  text-align: left;
+  font-weight: 200;
+  display: block;
+}
+
+.formSubmitButton:focus {
+  outline: none !important;
+  border-color: #474343;
+  border-width: 2px;
+  box-shadow: 0 0 6px #2e2e2e;
+}
+
+.formSubmitButton:hover {
+  padding: 6px 18px;
+  transition: all 0.3s ease-out;
+  background-color: transparent;
+  color: #2ed370;
+  border-radius: 4px;
+  border: 2px solid var(--primary);
+}
+
+.formSubmitButton {
+  margin-top: 10px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  width: 9rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--primary);
+  font-family: 'Arvo', sans-serif;
+}
+
+.physLocation {
+  color: #2ed370;
+  font-family: 'Arvo', sans-serif;
+  padding-bottom: 10px;
+  color: #2ed370;
+  padding-top: 10px;
+  text-align: center;
+  font-size: large;
+}
+
 .searchButton {
   margin-left: 0.5vw;
 }

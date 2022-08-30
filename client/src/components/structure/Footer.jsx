@@ -12,7 +12,7 @@ const Footer = () => {
                 <p>Designed and Developed by Team 1</p>
                 <p>This is the footer</p>
             </div>
-            <div id="footerButtons">
+            <div className="nav">
                 <button onClick={() => navigator('/meetTheTeam')}>Meet the Team</button>
                 <button><s>PH 2</s></button>
                 <button><s>PH 3</s></button>

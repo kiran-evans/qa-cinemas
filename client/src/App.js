@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import logo from './logo.svg';
+import './App.css';
+import Home from './components/Home';
+import Searchbar from './components/Searchbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ClassificationsPage from './components/ClassificationsPage';
@@ -7,10 +10,11 @@ import ClassificationsPage from './components/ClassificationsPage';
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="App">
         <Header />
+        <Searchbar />
         <Routes>
-          <Route path='/homepage' element={"TBA"} />
+          <Route exact path='/' element={<Home />} />
           <Route path='/bookNow' element={"TBA"} />
           <Route path='/payForTickets' element={"TBA"} />
           <Route path='/listings' element={"TBA"} />

@@ -1,7 +1,7 @@
 const ClassificationsPage = () => {
 
     return (
-    <>
+    <div>
         <h1>The movies we show have various classifications to indicate the intended audience.</h1>
         <h3>The full list of classifications can be found below. To find out about a classification, simply click on it.</h3>
         
@@ -41,7 +41,7 @@ const ClassificationsPage = () => {
             </li>
             <p>No one younger than 18 may see an 18 film in a cinema. No one younger than 18 may rent or buy an 18 rated video work. Adults should be free to choose their own entertainment.</p>
         </ul>
-    </>
+    </div>
 
     );
 

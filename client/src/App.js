@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ClassificationsPage from './components/ClassificationsPage';
 import Contact from './components/contact';
+import OpeningTimes from './components/OpeningTimes';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/placesToVisit' element={"TBA"} />
           <Route path='/contactUs' element={<Contact />} />
           <Route path='/aboutUs' element={"TBA"} />
+          <Route path='/openingTimes' element={<OpeningTimes />} />
         </Routes>
         <Footer />
       </div>

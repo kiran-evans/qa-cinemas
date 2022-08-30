@@ -7,9 +7,8 @@ const Footer = () => {
     const navigator = useNavigate();
 
     return (
-        <div>
+        <div className="footer">
             <div id="plainText">
-                <hr />
                 <p>Designed and Developed by Team 1</p>
                 <p>This is the footer</p>
             </div>

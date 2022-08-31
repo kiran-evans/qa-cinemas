@@ -8,6 +8,7 @@ import ClassificationsPage from './components/pages/ClassificationsPage';
 import Contact from './components/pages/Contact';
 import PlacesToGo from './components/pages/PlacesToGo';
 import OpeningTimes from './components/pages/OpeningTimes';
+import PaymentPage from './components/pages/PaymentPage';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/bookNow' element={"TBA"} />
-            <Route path='/payForTickets' element={"TBA"} />
+            <Route path='/payForTickets' element={<PaymentPage />} />
             <Route path='/listings' element={"TBA"} />
             <Route path='/newReleases' element={"TBA"} />
             <Route path='/discussionBoard' element={"TBA"} />

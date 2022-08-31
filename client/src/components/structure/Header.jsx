@@ -9,6 +9,7 @@ const Header = () => {
             <div className="logo"><h1>Team 1's App!</h1></div>
             <div className="nav">
               <button type="button" onClick={() => navigator('/')}>Home</button>
+              <button type="button" onClick={() => navigator('/payForTickets')}>Pay For Tickets</button>
               <button type="button" onClick={() => navigator('/classifications')}>Movie Classifications</button>
               <button type="button" onClick={() => navigator('/placesToGo')}>Places To Go</button>
               <button><s>Discussion Board</s></button>

@@ -12,6 +12,7 @@ const Header = () => {
               <button type="button" onClick={() => navigator('/classifications')}>Movie Classifications</button>
               <button type="button" onClick={() => navigator('/placesToGo')}>Places To Go</button>
               <button><s>Discussion Board</s></button>
+              <button type="button" onClick={() => navigator('/screens')}>Screens</button>
               <button type="button" onClick={() => navigator('/contact')}>Contact Us</button>
               <button type="button" onClick={() => navigator('/openingTimes')}>Opening Times</button>
             </div>

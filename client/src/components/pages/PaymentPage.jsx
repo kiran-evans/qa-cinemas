@@ -16,6 +16,9 @@ const PaymentPage = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
+        var myWindow = window.open("", "", "scrollbars=yes,resizable=no,top=1000,left=500,width=400,height=400");
+        Tim
+        myWindow.close();
         // could be updated once we've decided what we want.
     }
 

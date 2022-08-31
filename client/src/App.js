@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import logo from './logo.svg';
+import qaLogo from './components/Images/qaLogo.png';
 import './App.css';
 import Home from './components/Home';
 import Searchbar from './components/Searchbar';
@@ -8,6 +9,7 @@ import Footer from './components/Footer';
 import ClassificationsPage from './components/ClassificationsPage';
 import Contact from './components/contact';
 import OpeningTimes from './components/OpeningTimes';
+import AboutPage from './components/AboutPage';
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
           <Route path='/contactUs' element={<Contact />} />
           <Route path='/aboutUs' element={"TBA"} />
           <Route path='/openingTimes' element={<OpeningTimes />} />
+          <Route path='/aboutPage' element={<AboutPage />} />
         </Routes>
         <Footer />
       </div>

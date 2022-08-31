@@ -6,7 +6,7 @@ const MovieCard = (props) => {
     return (
         <div className="movieCard">
             <div className="moviePoster">
-                {poster ? <img src={poster} alt={'Poster for ' + title} /> : <p>No poster available</p>}
+                {<img src={poster ? poster : '/posters/noPoster.png'} alt={'Poster for ' + title} />}
             </div>
             <h1>{title}</h1>
             <h2>Released {dateReleased}</h2>

@@ -8,9 +8,6 @@ const getMovie = asyncHandler(async (req, res) => {
 });
 
 const setMovie = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
-    res.status(400).json({ message: 'Add all fields' });
-  }
   const schema = await movieSchema.create({
     title: req.body.title,
     classification: req.body.classification,

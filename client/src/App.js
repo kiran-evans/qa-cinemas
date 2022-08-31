@@ -10,6 +10,7 @@ import PlacesToGo from './components/pages/PlacesToGo';
 import OpeningTimes from './components/pages/OpeningTimes';
 import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
+import MeetTheTeam from './components/pages/MeetTheTeamPage';
 
 function App() {
   return (
@@ -30,10 +31,11 @@ function App() {
             <Route path='/placesToGo' element={<PlacesToGo />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/openingTimes' element={<OpeningTimes />} />
+            <Route path='/meetTheTeam' element={<MeetTheTeam />} />
 
           </Routes>
-        </div>
         <Footer />
+        </div>
       </div>
     </BrowserRouter>
   );

@@ -255,6 +255,13 @@ button:active {
   margin-top: 1em;
 }
 
+/* Classifications page */
+
+.classifications img {
+  width: 2.5em;
+  margin: 0 1em;
+}
+
 /* Contact Form */
 
 .ContactForm {

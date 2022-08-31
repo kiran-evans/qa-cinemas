@@ -16,12 +16,16 @@ const moviesSchema = mongoose.Schema({
     min: 10,
   },
   dateReleased: {
-    type: Date,
+    type: String,
     required: true,
   },
   ratings: {
     type: Number,
     required: true,
   },
+  poster: {
+    type: String,
+    required: false
+  }
 });
 module.exports = mongoose.model('movie', moviesSchema);

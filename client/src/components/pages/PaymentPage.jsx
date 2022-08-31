@@ -14,9 +14,14 @@ const PaymentPage = () => {
         return null;
     }
 
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
-        // could be updated once we've decided what we want.
+        var myWindow = window.open("", "PaymentProcessing", "scrollbars=yes,resizable=no,top=400,width=400,height=200");
+        myWindow.document.write("<h2>Processing your Payment</h2><p>Please do not exit this page</p>")
+        await new Promise(r => setTimeout(r, 2000));
+        myWindow.document.write("<h2>Payment Successful!</h2>")
+        await new Promise(r => setTimeout(r, 1000));
+        myWindow.close();
     }
 
     return (
@@ -25,17 +30,17 @@ const PaymentPage = () => {
 
             <div>
                 <input type="text" id="bookRefInput" placeholder="Enter Booking Ref." value={bookingReference} onChange={(e) => setBookingReference(e.target.value)} />
-                <button type="button">Find my booking</button>
+                <button type="button" onClick={() => searchForBooking()}>Find my booking</button>
                 <br /> <br />
                 {/* <Displayusers booking component /> */}
-                <form onSubmit={submitHandler}>
-                    <input type="text" id="holderNameInput" placeholder="Cardholder Name." value={holdersName} onChange={(e) => setHoldersName(e.target.value)}/>
+                <form onSubmit={(event) => submitHandler(event)}>
+                    <input type="text" id="holderNameInput" required placeholder="Cardholder Name." value={holdersName} onChange={(e) => setHoldersName(e.target.value)}/>
                     <br /> <br />
-                    <input type="text" id="cardNumInput" placeholder="Card Number." value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>
+                    <input type="text" id="cardNumInput" required placeholder="Card Number." value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>
                     <br /> <br />
-                    <input type="text" id="cardExpDate" placeholder="Exp. Date" onFocus={() => setExpDate('')} value={expDate} onChange={(e) => setExpDate(e.target.value)}/>
+                    <input type="text" id="cardExpDate" required placeholder="Exp. Date" onFocus={() => setExpDate('')} value={expDate} onChange={(e) => setExpDate(e.target.value)}/>
                     <br /> <br />
-                    <input type="text" id="cardSecNum" placeholder="CVV" onFocus={() => setSecurityCode('')} value={securityCode} onChange={(e) => setSecurityCode(e.target.value)}/>
+                    <input type="text" id="cardSecNum" required placeholder="CVV" onFocus={() => setSecurityCode('')} value={securityCode} onChange={(e) => setSecurityCode(e.target.value)}/>
                     <br /> <br />
                     
                     <button type="submit">Submit</button>

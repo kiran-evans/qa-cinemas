@@ -8,6 +8,7 @@ import ClassificationsPage from './components/pages/ClassificationsPage';
 import Contact from './components/pages/Contact';
 import PlacesToGo from './components/pages/PlacesToGo';
 import OpeningTimes from './components/pages/OpeningTimes';
+import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
 
 function App() {
@@ -24,11 +25,12 @@ function App() {
             <Route path='/listings' element={"TBA"} />
             <Route path='/newReleases' element={"TBA"} />
             <Route path='/discussionBoard' element={"TBA"} />
-            <Route path='/screens' element={"TBA"} />
+            <Route path='/screens' element={<ScreensPage />} />
             <Route path='/classifications' element={<ClassificationsPage />} />
             <Route path='/placesToGo' element={<PlacesToGo />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/openingTimes' element={<OpeningTimes />} />
+
           </Routes>
         </div>
         <Footer />

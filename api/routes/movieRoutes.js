@@ -5,7 +5,7 @@ const {
   setMovie,
   updateMovie,
   deleteMovie,
-} = require('../controllers/receiptController');
+} = require('../controllers/movieController');
 
 router.route('/').get(getMovie).post(setMovie);
 router.route('/:id').delete(deleteMovie).put(updateMovie);

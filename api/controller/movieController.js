@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler'); //have functions in controller
 
-const movieSchema = require('./model/movieSchema');
+const movieSchema = require('../model/movieSchema');
 
 const getMovie = asyncHandler(async (req, res) => {
   const schema = await movieSchema.find();

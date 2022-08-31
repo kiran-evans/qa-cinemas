@@ -6,11 +6,11 @@ const MovieCard = (props) => {
     return (
         <div className="movieCard">
             <div className="moviePoster">
-                {<img src={poster ? poster : '/posters/noPoster.png'} alt={'Poster for ' + title} />}
+                {<img src={poster ? `/posters/${poster}` : '/posters/noPoster.png'} alt={'Poster for ' + title} />}
             </div>
             <h1>{title}</h1>
             <h2>Released {dateReleased}</h2>
-            <div className="movieClassification">{classification}</div>
+            <div className="movieClassification">{<img src={`/classifications/${classification}.png`} alt={`Rated ${classification} symbol`} />}</div>
             <p>{description}</p>
             <button className="seeTimesButton">View showtimes</button>
         </div>

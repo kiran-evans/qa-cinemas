@@ -33,7 +33,7 @@ const PaymentPage = () => {
                 <button type="button" onClick={() => searchForBooking()}>Find my booking</button>
                 <br /> <br />
                 {/* <Displayusers booking component /> */}
-                <form onSubmit={submitHandler}>
+                <form onSubmit={(event) => submitHandler(event)}>
                     <input type="text" id="holderNameInput" required placeholder="Cardholder Name." value={holdersName} onChange={(e) => setHoldersName(e.target.value)}/>
                     <br /> <br />
                     <input type="text" id="cardNumInput" required placeholder="Card Number." value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>

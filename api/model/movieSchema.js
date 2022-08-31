@@ -23,5 +23,9 @@ const moviesSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  poster: {
+    type: String,
+    required: false
+  }
 });
 module.exports = mongoose.model('movie', moviesSchema);

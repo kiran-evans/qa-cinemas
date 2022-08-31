@@ -11,7 +11,7 @@ const Contact = () => {
   const ingredients = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    const formSubmit = 'http://localhost:8080/api/donation/createForm';
+    const formSubmit = 'localhost:5000/api/movies';
     axios
       .post(formSubmit, {
         header: header,
@@ -67,24 +67,16 @@ const Contact = () => {
           required
           onChange={(e) => setuserInput(e.target.value)}
         />
-        <button
-          className='formSubmitButton'
-          type='submit'
-          disabled={isLoading}
-        >
+        <button className='formSubmitButton' type='submit' disabled={isLoading}>
           {isLoading && <i className='fas fa-spinner fa-pulse' />}
           {!isLoading && 'Submit'}
         </button>
       </form>
-      <h4 className='physLocation'>
-        QA ltd.
-      </h4>
+      <h4 className='physLocation'>QA ltd.</h4>
       <h4 className='physLocation'>
         1st Floor, International House, 1 St Katharines Way, London E1W 1UN
       </h4>
-      <h4 className='physLocation'>
-        Tel: 0345 074 7829 | Fax: 0345 074 7830
-      </h4>
+      <h4 className='physLocation'>Tel: 0345 074 7829 | Fax: 0345 074 7830</h4>
     </div>
   );
 };

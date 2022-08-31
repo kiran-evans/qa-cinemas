@@ -236,13 +236,12 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0.2em solid white;
-  border-radius: 1em;
-  font-size: 0.8em;
-  font-weight: 500;
-  padding: 1em 1em;
   margin-top: 1em;
   margin-bottom: 0.5em;
+}
+
+.movieClassification img {
+  width: 3em;
 }
 
 .movieCard p {

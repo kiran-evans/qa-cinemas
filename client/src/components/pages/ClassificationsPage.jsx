@@ -7,21 +7,21 @@ const ClassificationsPage = () => {
         
         <ul>
             <li>
-                <a href="https://www.bbfc.co.uk/rating/u"> Rated U</a>
-                <img width="120px" height="120px" src="https://th.bing.com/th/id/R.9f058b85bf9d71b8533d72a0b0becabe?rik=ZSnwJyBI6A5hWA&pid=ImgRaw&r=0">
+                <a href="https://www.bbfc.co.uk/rating/u" target="_blank" rel="noreferrer noopener">Rated U</a>
+                <img width="120px" height="120px" src='/classifications/u.png' alt="Symbol for U rating">
                     </img>
                 <p>A U film should be suitable for audiences aged four years and over, although it is impossible to predict what might upset any particular child.</p>
             </li>
             <li>
-                <a href="https://www.bbfc.co.uk/rating/pg"> Rated PG</a>
-                <img width="120px" height="120px" src="https://th.bing.com/th/id/R.9f058b85bf9d71b8533d72a0b0becabe?rik=ZSnwJyBI6A5hWA&pid=ImgRaw&r=0">
+                <a href="https://www.bbfc.co.uk/rating/pg" target="_blank" rel="noreferrer noopener">Rated PG</a>
+                <img width="120px" height="120px" src="/classifications/pg.png" alt="Symbol for PG rating">
                     </img>
                 <p>General viewing, but some scenes may be unsuitable for young children. A PG film should not unsettle a child aged around eight or older. 
                     Unaccompanied children of any age may watch, but parents are advised to consider whether the content may upset younger, or more sensitive, children.</p>
             </li>
             
             <li>
-                <a href="https://www.bbfc.co.uk/rating/12"> Rated 12A</a>
+                <a href="https://www.bbfc.co.uk/rating/12">Rated 12A</a>
                 <img width="120px" height="120px" src="https://th.bing.com/th/id/R.9f058b85bf9d71b8533d72a0b0becabe?rik=ZSnwJyBI6A5hWA&pid=ImgRaw&r=0">
                     </img>
                 <p>Films classified 12A and video works classified 12 contain material that is not generally suitable for children aged under 12. 
@@ -30,13 +30,13 @@ const ClassificationsPage = () => {
                     check the Ratings Info for that film in advance. No one younger than 12 may rent or buy a 12 rated video work.</p>
             </li>
             <li>
-                <a href="https://www.bbfc.co.uk/rating/15"> Rated 15</a>
+                <a href="https://www.bbfc.co.uk/rating/15">Rated 15</a>
                 <img width="120px" height="120px" src="https://th.bing.com/th/id/R.9f058b85bf9d71b8533d72a0b0becabe?rik=ZSnwJyBI6A5hWA&pid=ImgRaw&r=0">
                     </img>
                 <p>No one younger than 15 may see a 15 film in a cinema. No one younger than 15 may rent or buy a 15 rated video work.</p>
             </li>
             <li>
-                <a href="https://www.bbfc.co.uk/rating/18"> Rated 18</a>
+                <a href="https://www.bbfc.co.uk/rating/18">Rated 18</a>
                 <img width="120px" height="120px" src="https://th.bing.com/th/id/R.9f058b85bf9d71b8533d72a0b0becabe?rik=ZSnwJyBI6A5hWA&pid=ImgRaw&r=0"></img>
             </li>
             <p>No one younger than 18 may see an 18 film in a cinema. No one younger than 18 may rent or buy an 18 rated video work. Adults should be free to choose their own entertainment.</p>

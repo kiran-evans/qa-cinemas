@@ -10,28 +10,29 @@ import OpeningTimes from './components/pages/OpeningTimes';
 import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
+import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <div className='appContainer'>
-          <Header />
-          <div className='appMain'>
-            <div className='appBody'>
-              <Routes>
-                <Route exact path='/' element={<Home />} />
-                <Route path='/bookNow' element={"TBA"} />
-                <Route path='/payForTickets' element={<PaymentPage />} />
-                <Route path='/listings' element={"TBA"} />
-                <Route path='/newReleases' element={"TBA"} />
-                <Route path='/discussionBoard' element={"TBA"} />
-                <Route path='/screens' element={<ScreensPage />} />
-                <Route path='/classifications' element={<ClassificationsPage />} />
-                <Route path='/placesToGo' element={<PlacesToGo />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/openingTimes' element={<OpeningTimes />} />
-                <Route path='/meetTheTeam' element={<MeetTheTeam />} />
+        <Header />
+        <Searchbar />
+        <div className='appBody'>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/bookNow' element={"TBA"} />
+            <Route path='/payForTickets' element={<PaymentPage />} />
+            <Route path='/listings' element={"TBA"} />
+            <Route path='/newReleases' element={"TBA"} />
+            <Route path='/discussionBoard' element={"TBA"} />
+            <Route path='/screens' element={<ScreensPage />} />
+            <Route path='/classifications' element={<ClassificationsPage />} />
+            <Route path='/placesToGo' element={<PlacesToGo />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/openingTimes' element={<OpeningTimes />} />
+            <Route path='/meetTheTeam' element={<MeetTheTeam />} />
+            <Route path='/aboutPage' element={<AboutPage />} />
 
               </Routes>
             </div>

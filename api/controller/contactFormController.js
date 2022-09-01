@@ -23,7 +23,6 @@ const setForm = asyncHandler(async (req, res) => {
     header: req.body.header,
     userEmail: req.body.userEmail,
     body: req.body.body,
-    isResolved: req.body.isResolved,
   });
   res.status(200).json(schema);
 });

@@ -290,7 +290,7 @@ button:active {
   flex-direction: column;
 }
 
-.IngredientForm {
+.Form {
   display: flex;
   flex-direction: column;
   margin: 1em 0;

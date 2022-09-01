@@ -10,6 +10,8 @@ import OpeningTimes from './components/pages/OpeningTimes';
 import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
+import ListingsGallery from './components/pages/ListingsGallery';
+import SearchResults from './components/pages/SearchResults';
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
                 <Route exact path='/' element={<Home />} />
                 <Route path='/bookNow' element={"TBA"} />
                 <Route path='/payForTickets' element={<PaymentPage />} />
-                <Route path='/listings' element={"TBA"} />
+                <Route path='/listings' element={<ListingsGallery />} />
                 <Route path='/newReleases' element={"TBA"} />
                 <Route path='/discussionBoard' element={"TBA"} />
                 <Route path='/screens' element={<ScreensPage />} />
@@ -32,6 +34,7 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
+                <Route path='/search' element={<SearchResults />} />
 
               </Routes>
             </div>

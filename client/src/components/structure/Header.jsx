@@ -11,6 +11,7 @@ const Header = () => {
             <div className="nav">
                 <div className="navButtons">
                     <button type="button" onClick={() => navigator('/')}>Home</button>
+                    <button type="button" onClick={() => navigator('/listings')}>Now Showing</button>
                     <button type="button" onClick={() => navigator('/payForTickets')}>Pay For Tickets</button>
                     <button type="button" onClick={() => navigator('/classifications')}>Movie Classifications</button>
                     <button type="button" onClick={() => navigator('/placesToGo')}>Places To Go</button>

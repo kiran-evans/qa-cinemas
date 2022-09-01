@@ -12,7 +12,9 @@ import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
 import ListingsGallery from './components/pages/ListingsGallery';
 import SearchResults from './components/pages/SearchResults';
-import AboutPage from './components/pages/AboutPage';
+import BookingPage from './components/pages/BookingPage';
+import DiscussionBoard from './components/pages/DiscussionBoard';
+// import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
@@ -24,11 +26,11 @@ function App() {
             <div className='appBody'>
               <Routes>
                 <Route exact path='/' element={<Home />} />
-                <Route path='/bookNow' element={"TBA"} />
+                <Route path='/bookNow' element={<BookingPage />} />
                 <Route path='/payForTickets' element={<PaymentPage />} />
                 <Route path='/listings' element={<ListingsGallery />} />
                 <Route path='/newReleases' element={"TBA"} />
-                <Route path='/discussionBoard' element={"TBA"} />
+                <Route path='/discussionBoard' element={<DiscussionBoard />} />
                 <Route path='/screens' element={<ScreensPage />} />
                 <Route path='/classifications' element={<ClassificationsPage />} />
                 <Route path='/placesToGo' element={<PlacesToGo />} />
@@ -36,7 +38,7 @@ function App() {
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
                 <Route path='/search' element={<SearchResults />} />
-            <Route path='/aboutPage' element={<AboutPage />} />
+            {/* <Route path='/aboutPage' element={<AboutPage />} /> */}
 
               </Routes>
             </div>

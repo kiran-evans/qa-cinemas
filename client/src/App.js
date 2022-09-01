@@ -11,6 +11,7 @@ import OpeningTimes from './components/pages/OpeningTimes';
 import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
+import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/openingTimes' element={<OpeningTimes />} />
             <Route path='/meetTheTeam' element={<MeetTheTeam />} />
+            <Route path='/aboutPage' element={<AboutPage />} />
 
           </Routes>
         <Footer />

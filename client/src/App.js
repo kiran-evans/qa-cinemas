@@ -12,6 +12,8 @@ import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
 import ListingsGallery from './components/pages/ListingsGallery';
 import SearchResults from './components/pages/SearchResults';
+import BookingPage from './components/pages/BookingPage';
+import DiscussionBoard from './components/pages/DiscussionBoard';
 import NewReleasesGallery from './components/pages/NewReleasesGallery';
 import { useState } from 'react';
 // import AboutPage from './components/pages/AboutPage';
@@ -29,11 +31,11 @@ function App() {
             <div className='appBody'>
               <Routes>
                 <Route exact path='/' element={<Home />} />
-                <Route path='/bookNow' element={"TBA"} />
+                <Route path='/bookNow' element={<BookingPage />} />
                 <Route path='/payForTickets' element={<PaymentPage />} />
                 <Route path='/listings' element={<ListingsGallery />} />
                 <Route path='/newReleases' element={<NewReleasesGallery />} />
-                <Route path='/discussionBoard' element={"TBA"} />
+                <Route path='/discussionBoard' element={<DiscussionBoard />} />
                 <Route path='/screens' element={<ScreensPage />} />
                 <Route path='/classifications' element={<ClassificationsPage />} />
                 <Route path='/placesToGo' element={<PlacesToGo />} />

@@ -18,6 +18,7 @@ const Header = () => {
                     <button type="button" onClick={() => navigator('/screens')}>Screens</button>
                     <button type="button" onClick={() => navigator('/contact')}>Contact Us</button>
                     <button type="button" onClick={() => navigator('/openingTimes')}>Opening Times</button>
+                    <button type="button" onClick={() => navigator('/travelPage')}> Travel Page</button>
                 </div>
                 <SearchBar />
             </div>

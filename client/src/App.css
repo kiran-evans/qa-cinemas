@@ -158,6 +158,13 @@ button:active {
   justify-content: center;
 }
 
+.searchForm {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .searchInput {
   width: 50%;
 }

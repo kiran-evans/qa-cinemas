@@ -14,7 +14,7 @@ const setMovie = asyncHandler(async (req, res) => {
     description: req.body.description,
     dateReleased: req.body.dateReleased,
     ratings: req.body.ratings,
-    poster: req.body.poster
+    poster: req.body.poster,
   });
   res.status(200).json(schema);
 });

@@ -1,8 +1,7 @@
 import React from "react";
-//opening times page
 const OpeningTimes = () => {
   return (
-    <div className="App">
+    <div className="openingTimes">
     <h1>Opening Times</h1>
     <table>
       <thead>

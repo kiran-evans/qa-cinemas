@@ -29,7 +29,7 @@
 }
 
 .appBody {
-  width: 100%;
+  padding: 0 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,17 +142,39 @@ button:active {
   justify-content: space-around;
 }
 
-.navButtons {
+.navLinks {
   flex: 5;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
+.navLinks>* {
+  font-size: 1.4em;
+  color: white;
+  text-decoration: none;
+  border-bottom: 0.2em solid rgba(0,0,0,0);
+}
+
+.navLinks>*:hover {
+  border-bottom-color: skyblue;
+}
+
+.navLinks>*:active {
+  border-bottom-color: white;
+}
+
 /* Searchbar */
 
 .searchBar {
   flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchForm {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,18 +199,18 @@ button:active {
 
 .moviesListContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .moviesList {
-  flex: 1;
+  flex: 1 1 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .movieCard {
-  flex-basis: 15%;
+  flex: 0 0 20em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,8 +218,8 @@ button:active {
   background-color: #002;
   border: 0.1em solid skyblue;
   border-radius: 1em;
-  padding: 2% 2%;
-  margin: 1% 1%;
+  padding: 2em 1em;
+  margin: 1em 1em;
   margin-bottom: 10%;
 }
 
@@ -266,10 +288,9 @@ button:active {
 .ContactForm {
   display: flex;
   flex-direction: column;
-  width: 30%;
 }
 
-.IngredientForm {
+.Form {
   display: flex;
   flex-direction: column;
   margin: 1em 0;
@@ -287,4 +308,28 @@ button:active {
   width: 6em;
   margin-top: 1em;
   font-weight: 600;
+}
+
+.FormInputBody {
+  height: 10rem;
+  text-align: left;
+  word-wrap: break-word;
+  grid-area: auto;
+  vertical-align: text-top;
+  white-space: nowrap;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
 }

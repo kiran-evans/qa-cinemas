@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PaymentSuccess from "../misc/PaymentSuccess";
 
 const PaymentPage = () => {
 
@@ -7,6 +8,7 @@ const PaymentPage = () => {
     const [cardNumber, setCardNumber] = useState('');
     const [securityCode, setSecurityCode] = useState('');
     const [expDate, setExpDate] = useState('');
+    const [submitState, setSubmitState] = useState(false);
     
     const searchForBooking = () => {
         // This function should check the DB for the user's booking number.
@@ -16,12 +18,8 @@ const PaymentPage = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        var myWindow = window.open("", "PaymentProcessing", "scrollbars=yes,resizable=no,top=400,width=400,height=200");
-        myWindow.document.write("<h2>Processing your Payment</h2><p>Please do not exit this page</p>")
-        await new Promise(r => setTimeout(r, 2000));
-        myWindow.document.write("<h2>Payment Successful!</h2>")
-        await new Promise(r => setTimeout(r, 1000));
-        myWindow.close();
+        await new Promise(r => setTimeout(r, 1000))
+        setSubmitState(true);
     }
 
     return (
@@ -46,6 +44,7 @@ const PaymentPage = () => {
                     <button type="submit">Submit</button>
                 </form>
             </div>
+            <PaymentSuccess subState={submitState} />
         </div>
     );
 

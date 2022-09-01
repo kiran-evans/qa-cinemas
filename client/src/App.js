@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Searchbar from './components/structure/Searchbar';
 import Header from './components/structure/Header';
 import Footer from './components/structure/Footer';
 import Home from './components/pages/Home';
@@ -35,8 +34,10 @@ function App() {
             <Route path='/meetTheTeam' element={<MeetTheTeam />} />
             <Route path='/aboutPage' element={<AboutPage />} />
 
-          </Routes>
-        <Footer />
+              </Routes>
+            </div>
+            <Footer />
+          </div>
         </div>
       </div>
     </BrowserRouter>

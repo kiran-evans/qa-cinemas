@@ -22,10 +22,12 @@ const Home = () => {
         <div className="homeContainer">
             <h1 className="homeTitle">Now Showing</h1>
 
-            <div className="moviesList">
-                {movies.map(movie => (
-                    <MovieCard key={movie.id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} post={movie.poster} />
-                ))}
+            <div className="moviesListContainer">
+                <div className="moviesList">
+                    {movies ? movies.map(movie => (
+                        <MovieCard key={movie.id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} />
+                    )) : <p>Error: Coudn't load movies. Make sure server is running!</p>}
+                </div>
             </div>
         </div>
     )

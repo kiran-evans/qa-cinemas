@@ -159,7 +159,7 @@ table {
 }
 
 .navLinks {
-  flex: 5;
+  flex: 7;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -169,15 +169,23 @@ table {
   font-size: 1.4em;
   color: white;
   text-decoration: none;
-  border-bottom: 0.2em solid rgba(0,0,0,0);
+  padding-left: 0.6em;
+  padding-right: 0.3em;
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0);
+  border-left: 0.1em solid white;
 }
 
 .navLinks>*:hover {
-  border-bottom-color: skyblue;
+  text-decoration: underline;
+  text-decoration-color: skyblue;
 }
 
 .navLinks>*:active {
-  border-bottom-color: white;
+  text-decoration-color: white;
+}
+
+.navLinks>:first-child {
+  border-left-color: rgba(0, 0, 0, 0);
 }
 
 /* Searchbar */

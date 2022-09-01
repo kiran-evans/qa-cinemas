@@ -12,6 +12,7 @@ import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
 import ListingsGallery from './components/pages/ListingsGallery';
 import SearchResults from './components/pages/SearchResults';
+import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
                 <Route path='/search' element={<SearchResults />} />
+            <Route path='/aboutPage' element={<AboutPage />} />
 
               </Routes>
             </div>

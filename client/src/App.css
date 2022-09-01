@@ -29,7 +29,7 @@
 }
 
 .appBody {
-  width: 100%;
+  padding: 0 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,11 +142,26 @@ button:active {
   justify-content: space-around;
 }
 
-.navButtons {
+.navLinks {
   flex: 5;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.navLinks>* {
+  font-size: 1.4em;
+  color: white;
+  text-decoration: none;
+  border-bottom: 0.2em solid rgba(0,0,0,0);
+}
+
+.navLinks>*:hover {
+  border-bottom-color: skyblue;
+}
+
+.navLinks>*:active {
+  border-bottom-color: white;
 }
 
 /* Searchbar */
@@ -195,7 +210,7 @@ button:active {
 }
 
 .movieCard {
-  flex: 0 0 25em;
+  flex: 0 0 20em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -273,7 +288,6 @@ button:active {
 .ContactForm {
   display: flex;
   flex-direction: column;
-  width: 30%;
 }
 
 .IngredientForm {

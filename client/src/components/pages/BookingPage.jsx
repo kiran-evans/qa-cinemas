@@ -19,9 +19,10 @@ const BookingPage = () => {
     return (
         <div id="bookingForm">
             <select onChange={(e) => setSelectedMovie(e.target.value)}>
+                <option value="">-Select a Movie-</option>
                 {availableMovies.map(({title}) => <option value={title}>{title}</option>)}
             </select>
-            <button type="button">Book Tickets for {selectedMovie}</button>
+            {(selectedMovie) ? <button type="button">Book Tickets for {selectedMovie}</button> : null}
         </div>
     )
 

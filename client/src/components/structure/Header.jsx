@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import SearchBar from './Searchbar';
 
 const Header = () => {
@@ -12,10 +12,11 @@ const Header = () => {
                 <div className="navButtons">
                     <button type="button" onClick={() => navigator('/')}>Home</button>
                     <button type="button" onClick={() => navigator('/listings')}>Now Showing</button>
+                    <button type="button" onClick={() => navigator('/bookNow')}>Book Now</button>
                     <button type="button" onClick={() => navigator('/payForTickets')}>Pay For Tickets</button>
                     <button type="button" onClick={() => navigator('/classifications')}>Movie Classifications</button>
                     <button type="button" onClick={() => navigator('/placesToGo')}>Places To Go</button>
-                    <button><s>Discussion Board</s></button>
+                    <button type="button" onClick={() => navigator('/discussionBoard')}>Discussion Board</button>
                     <button type="button" onClick={() => navigator('/screens')}>Screens</button>
                     <button type="button" onClick={() => navigator('/contact')}>Contact Us</button>
                     <button type="button" onClick={() => navigator('/openingTimes')}>Opening Times</button>

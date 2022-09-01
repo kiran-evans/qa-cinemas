@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Searchbar from './components/structure/Searchbar';
 import Header from './components/structure/Header';
 import Footer from './components/structure/Footer';
 import Home from './components/pages/Home';
@@ -11,6 +10,7 @@ import OpeningTimes from './components/pages/OpeningTimes';
 import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
+import AboutPage from './components/pages/AboutPage';
 
 function App() {
   return (
@@ -32,9 +32,12 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/openingTimes' element={<OpeningTimes />} />
             <Route path='/meetTheTeam' element={<MeetTheTeam />} />
+            <Route path='/aboutPage' element={<AboutPage />} />
 
-          </Routes>
-        <Footer />
+              </Routes>
+            </div>
+            <Footer />
+          </div>
         </div>
       </div>
     </BrowserRouter>

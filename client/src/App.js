@@ -10,6 +10,7 @@ import OpeningTimes from './components/pages/OpeningTimes';
 import ScreensPage from './components/pages/Screens';
 import PaymentPage from './components/pages/PaymentPage';
 import MeetTheTeam from './components/pages/MeetTheTeamPage';
+import Travelpage from './components/pages/Travelpage';
 import ListingsGallery from './components/pages/ListingsGallery';
 import SearchResults from './components/pages/SearchResults';
 import BookingPage from './components/pages/BookingPage';
@@ -44,6 +45,7 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
+                <Route path='/travelpage' element={<Travelpage />} />
                 <Route
                   path='/search'
                   element={<SearchResults searchResult={searchResult} />}

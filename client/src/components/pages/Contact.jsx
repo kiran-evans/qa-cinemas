@@ -3,19 +3,21 @@ import axios from 'axios';
 
 const Contact = () => {
   const [header, setHeader] = useState('');
-  const [userInput, setuserInput] = useState('');
+  const [userEmail, setuserEmail] = useState('');
+  const [body, setBody] = useState('');
   const [errorValue, setErrorValue] = useState('');
   const [successfulSubmission, setSuccessfulSubmission] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const ingredients = (e) => {
+  const contactForm = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    const formSubmit = 'localhost:5000/api/movies';
+    const formSubmit = 'http://localhost:5000/api/contact';
     axios
       .post(formSubmit, {
         header: header,
-        userInput: userInput,
+        useEmail: userEmail,
+        body: body,
       })
       .then(function (response) {
         console.log(response.data);
@@ -41,7 +43,7 @@ const Contact = () => {
 
   return (
     <div className='ContactForm'>
-      <form className='IngredientForm' onSubmit={() => ingredients()}>
+      <form className=' Form' onSubmit={() => contactForm()}>
         <h2 className='FormHeader'>Submit a query</h2>
         <label>Header (*)</label>
         <input
@@ -57,7 +59,7 @@ const Contact = () => {
           className='FormInput'
           type='email'
           required
-          onChange={(e) => setuserInput(e.target.value)}
+          onChange={(e) => setuserEmail(e.target.value)}
         />
 
         <label>Body (*)</label>
@@ -65,7 +67,7 @@ const Contact = () => {
           className='FormInputBody'
           type='text'
           required
-          onChange={(e) => setuserInput(e.target.value)}
+          onChange={(e) => setBody(e.target.value)}
         />
         <button className='formSubmitButton' type='submit' disabled={isLoading}>
           {isLoading && <i className='fas fa-spinner fa-pulse' />}

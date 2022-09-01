@@ -16,10 +16,6 @@ const formSchema = mongoose.Schema(
       required: true,
       min: 10,
     },
-    isResolved: {
-      type: Boolean,
-      required: true,
-    },
   },
   {
     timestamps: true,

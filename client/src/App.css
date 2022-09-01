@@ -288,3 +288,12 @@ button:active {
   margin-top: 1em;
   font-weight: 600;
 }
+
+.FormInputBody {
+  height: 10rem;
+  text-align: left;
+  word-wrap: break-word;
+  grid-area: auto;
+  vertical-align: text-top;
+  white-space: nowrap;
+}

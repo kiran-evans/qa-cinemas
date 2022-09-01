@@ -62,7 +62,7 @@ const Contact = () => {
 
         <label>Body (*)</label>
         <input
-          className='FormInput'
+          className='FormInputBody'
           type='text'
           required
           onChange={(e) => setuserInput(e.target.value)}

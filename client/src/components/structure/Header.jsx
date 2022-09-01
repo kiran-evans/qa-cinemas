@@ -5,8 +5,8 @@ const Header = (props) => {
 
     return (
         <div className="header">
+            <div className="logo"><Link to='/'><img alt="Logo" src="https://cdn.discordapp.com/attachments/768054278933184533/1014837355909226497/qa-cinemas-logo-transp.png" width={70} height={45}/></Link></div>
             <div className="nav">
-                <div className="logo"><Link to='/'><img alt="Logo" src="https://cdn.discordapp.com/attachments/768054278933184533/1014837355909226497/qa-cinemas-logo-transp.png" width={70} height={45}/></Link></div>
                 <div className="navLinks">
                     <Link to='/'>Home</Link>
                     <Link to='/listings'>Now Showing</Link>

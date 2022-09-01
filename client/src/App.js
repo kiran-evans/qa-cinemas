@@ -19,12 +19,11 @@ import { useState } from 'react';
 // import AboutPage from './components/pages/AboutPage';
 
 function App() {
-
   const [searchResult, setSearchResult] = useState([]);
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className='App'>
         <div className='appContainer'>
           <Header setSearchResult={setSearchResult} />
           <div className='appMain'>
@@ -37,14 +36,19 @@ function App() {
                 <Route path='/newReleases' element={<NewReleasesGallery />} />
                 <Route path='/discussionBoard' element={<DiscussionBoard />} />
                 <Route path='/screens' element={<ScreensPage />} />
-                <Route path='/classifications' element={<ClassificationsPage />} />
+                <Route
+                  path='/classifications'
+                  element={<ClassificationsPage />}
+                />
                 <Route path='/placesToGo' element={<PlacesToGo />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
-                <Route path='/search' element={<SearchResults searchResult={searchResult} />} />
+                <Route
+                  path='/search'
+                  element={<SearchResults searchResult={searchResult} />}
+                />
                 {/* <Route path='/aboutPage' element={<AboutPage />} /> */}
-
               </Routes>
             </div>
             <Footer />

@@ -2,8 +2,8 @@ const router = require('express').Router();
 
 const { Discussions } = require('../model/discussionModel');
 
-router.get('/getAllRelated', (req, res, next) => {
-    Discussions.find({"movie": req.body.movie})
+router.get('/getAllRelated/:movie', (req, res, next) => {
+    Discussions.find({"movie": req.params.movie})
         .then((result) => res.status(200).json(result))
         .catch((err) => next(err));
 });

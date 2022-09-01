@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Searchbar = () => {
+const Searchbar = (props) => {
 
     const navigator = useNavigate();
     const [query, setQuery] = useState('');
-    const [result, setResult] = useState([]);
 
     const search = async (e) => {
         e.preventDefault();
@@ -17,19 +16,15 @@ const Searchbar = () => {
             let resultArray = [];
             
             // For each movie in the database, check if the title includes the search query. If it does, add it to the search results array.
-            resultArray = res.data.filter(r => r.title.toLowerCase().includes(query.toLowerCase()));
+            resultArray = res.data.filter(r => (r.title.toLowerCase().includes(query.toLowerCase())));
 
-            setResult(resultArray);
+            props.setSearchResult(resultArray);
         } catch (err) {
             console.log(err);
         }
-    };
 
-    useEffect(() => {
-        if (!result) return;
-        console.log(result);
-        navigator('/search', { state: { result } }); // Forward result state to search results component when navigated to
-    }, [result]);
+        navigator('/search');
+    };
 
     return (
         <div className="searchBar">

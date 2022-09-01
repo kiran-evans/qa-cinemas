@@ -14,14 +14,19 @@ import ListingsGallery from './components/pages/ListingsGallery';
 import SearchResults from './components/pages/SearchResults';
 import BookingPage from './components/pages/BookingPage';
 import DiscussionBoard from './components/pages/DiscussionBoard';
+import NewReleasesGallery from './components/pages/NewReleasesGallery';
+import { useState } from 'react';
 // import AboutPage from './components/pages/AboutPage';
 
 function App() {
+
+  const [searchResult, setSearchResult] = useState([]);
+
   return (
     <BrowserRouter>
       <div className="App">
         <div className='appContainer'>
-          <Header />
+          <Header setSearchResult={setSearchResult} />
           <div className='appMain'>
             <div className='appBody'>
               <Routes>
@@ -29,7 +34,7 @@ function App() {
                 <Route path='/bookNow' element={<BookingPage />} />
                 <Route path='/payForTickets' element={<PaymentPage />} />
                 <Route path='/listings' element={<ListingsGallery />} />
-                <Route path='/newReleases' element={"TBA"} />
+                <Route path='/newReleases' element={<NewReleasesGallery />} />
                 <Route path='/discussionBoard' element={<DiscussionBoard />} />
                 <Route path='/screens' element={<ScreensPage />} />
                 <Route path='/classifications' element={<ClassificationsPage />} />
@@ -37,8 +42,8 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
-                <Route path='/search' element={<SearchResults />} />
-            {/* <Route path='/aboutPage' element={<AboutPage />} /> */}
+                <Route path='/search' element={<SearchResults searchResult={searchResult} />} />
+                {/* <Route path='/aboutPage' element={<AboutPage />} /> */}
 
               </Routes>
             </div>

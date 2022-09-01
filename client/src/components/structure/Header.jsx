@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="nav">
-                <div className="logo"><button type="button" onClick={() => navigator('/')}><img alt="Logo" src="https://cdn.discordapp.com/attachments/768054278933184533/1014837355909226497/qa-cinemas-logo-transp.png" width={70} height={45} /></button>
+                <div className="logo"><button type="button" onClick={() => navigator('/')}><img alt="Logo" src="https://cdn.discordapp.com/attachments/768054278933184533/1014837355909226497/qa-cinemas-logo-transp.png" width={70} height={45}/></button>
                 </div>
                 <div className="navButtons">
                     <button type="button" onClick={() => navigator('/listings')}>Now Showing</button>

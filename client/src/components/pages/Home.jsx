@@ -20,7 +20,7 @@ const Home = () => {
             <h3>Experience the patented <h4>QA 5D Soundscape</h4> that puts you right in the centre of the action. </h3>
             <img alt="QA 5D Soundscape" src="https://i.pinimg.com/originals/1b/c2/3d/1bc23d34ecee7afe338d9f18034fe51d.jpg" />
 
-            <p>What are you waiting for?! Take a look at <a href="./listings">what's on now</a> and we'll see you soon!</p>
+            <p>What are you waiting for?! Take a look at <a href="./listings">what's on now</a> and we'll see you soon! </p>
 
         </div>
     )

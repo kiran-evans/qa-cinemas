@@ -14,7 +14,7 @@ const setMovie = asyncHandler(async (req, res) => {
     description: req.body.description,
     dateReleased: req.body.dateReleased,
     ratings: req.body.ratings,
-    poster: req.body.poster
+    poster: req.body.poster,
   });
   res.status(200).json(schema);
 });
@@ -47,30 +47,9 @@ const deleteMovie = asyncHandler(async (req, res) => {
   res.status(200).json({ id: req.params.id });
 });
 
-// Search
-
-const searchMovies = asyncHandler(async (req, res) => {
-  const query = req.query.q;
-
-  try {
-    const schema = await movieSchema.find({ title: query });
-  
-    if (!schema) {
-      res.status(400).json({ message: `Movie not found` });
-    }
-    
-    res.status(200).json(schema);
-
-  } catch (err) {
-    res.status(500).json(err);
-    console.log(err);
-  }
-});
-
 module.exports = {
   getMovie,
   setMovie,
   updateMovie,
   deleteMovie,
-  searchMovies,
 };

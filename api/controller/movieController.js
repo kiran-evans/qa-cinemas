@@ -7,6 +7,11 @@ const getMovie = asyncHandler(async (req, res) => {
   res.status(200).json(schema);
 });
 
+const getMovieByID = asyncHandler(async (req, res) => {
+  const schema = await movieSchema.findById(req.params.id);
+  res.status(200).json(schema);
+});
+
 const setMovie = asyncHandler(async (req, res) => {
   const schema = await movieSchema.create({
     title: req.body.title,
@@ -52,6 +57,7 @@ const deleteMovie = asyncHandler(async (req, res) => {
 
 module.exports = {
   getMovie,
+  getMovieByID,
   setMovie,
   updateMovie,
   deleteMovie,

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 import Header from './components/structure/Header';
 import Footer from './components/structure/Footer';
@@ -16,7 +17,6 @@ import SearchResults from './components/pages/SearchResults';
 import BookingPage from './components/pages/BookingPage';
 import DiscussionBoard from './components/pages/DiscussionBoard';
 import NewReleasesGallery from './components/pages/NewReleasesGallery';
-import { useState } from 'react';
 import MoviePage from './components/pages/MoviePage';
 import ScrumMethods from './components/pages/ScrumMethods';
 

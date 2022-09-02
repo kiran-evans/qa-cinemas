@@ -19,11 +19,14 @@ const MovieCard = (props) => {
         <div className="movieCard">
             {(movieAge <= fourWeeks && movieAge >= 0) && <h2>New Release</h2>}
             {(movieAge < 0) && <h2>Coming Soon</h2>}
+            {/* If no poster value is in the db, default to noPoster.png */}
             <div className="moviePoster">
                 {<img src={poster ? `/posters/${poster}` : '/posters/noPoster.png'} alt={'Poster for ' + title} />}
             </div>
             <h1>{title}</h1>
+            {/* If movie hasn't been released, change to 'Arriving on'. Else, convert release date into readable en-GB format. */}
             <h2>{movieAge < 0 ? 'Arriving on' : 'Released on'} {new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' }).format(released)}</h2>
+            {/* Match classification value in db to corresponding /public/ image */}
             <div className="movieClassification">{<img src={`/classifications/${classification}.png`} alt={`Rated ${classification} symbol`} />}</div>
             <p>{description}</p>
             <button onClick={() => goToMovie()} className="seeTimesButton">View showtimes</button>

@@ -18,11 +18,13 @@ const Searchbar = (props) => {
             // For each movie in the database, check if the title includes the search query. If it does, add it to the search results array.
             resultArray = res.data.filter(r => (r.title.toLowerCase().includes(query.toLowerCase())));
 
+            // Set and pass state eventually back to App.js
             props.setSearchResult(resultArray);
         } catch (err) {
             console.log(err);
         }
 
+        // Take user to results page
         navigator('/search');
     };
 

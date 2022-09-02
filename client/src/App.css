@@ -30,6 +30,7 @@
 
 .appBody {
   padding: 0 5em;
+  padding-bottom: 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,12 +60,31 @@ h4 {
   text-align: center;
 }
 
+h5 {
+  color: springgreen;
+  font-size: 1.2em;
+  margin: 0.4em 0;
+}
+
 p {
-  font-size: 1.1em;
+  font-size: 1.2em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: skyblue;
 }
 
 li {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 label {
@@ -113,32 +133,37 @@ button:active {
 }
 
 table {
-  width: 1400px;
-  height: 400px;
+  width: 70em;
+  height: 50em;
   border-collapse: collapse;
-  }
+}
   
-  th {
-  border-bottom: 1px solid black;
-  border: 2px solid black;
-  }
+th {
+  border: 0.1em solid white;
+  border-bottom-width: 0.2em;
+  font-size: 2em;
+}
   
-  td {
+td {
   text-align: center;
-  border: 2px solid black;
-  }
+  border: 0.1em solid white;
+  font-size: 2em;
+}
 
 /* Header and Footer */
 
 .header {
-  height: 10%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 1%;
+  padding-bottom: 1em;
   background-color: #225;
+}
+
+.logo img {
+  width: 20em;
+  padding-top: 1em;
 }
 
 .footer {
@@ -152,26 +177,25 @@ table {
 }
 
 .nav {
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 .navLinks {
-  flex: 7;
+  flex: 8;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .navLinks>* {
   font-size: 1.4em;
   color: white;
   text-decoration: none;
-  padding-left: 0.6em;
-  padding-right: 0.3em;
-  border-bottom: 0.1em solid rgba(0, 0, 0, 0);
+  padding-left: 0.5em;
+  padding-right: 0.4em;
   border-left: 0.1em solid white;
 }
 
@@ -191,10 +215,15 @@ table {
 /* Searchbar */
 
 .searchBar {
-  flex: 2;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 2em;
+}
+
+.searchInput {
+  flex: 1;
 }
 
 .searchForm {
@@ -204,12 +233,8 @@ table {
   justify-content: center;
 }
 
-.searchInput {
-  width: 50%;
-}
-
 .searchButton {
-  margin-left: 2%;
+  margin-left: 1em;
 }
 
 /* Home */
@@ -220,6 +245,8 @@ table {
   align-items: center;
   justify-content: center;
 }
+
+/* Movie Galleries */
 
 .moviesListContainer {
   display: flex;
@@ -300,6 +327,80 @@ table {
   margin-top: 1em;
 }
 
+/* Movie Individual Pages */
+
+.moviePage {
+  display: flex;
+  align-items: flex-start;
+  padding: 5em;
+}
+
+.movieInfo {
+  display: flex;
+}
+
+.movieInfo>* {
+  margin: 0 1em;
+}
+
+.moviePageText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moviePageText h1 {
+  font-size: 2.2em;
+  margin-top: 0.3em;
+}
+
+.moviePageText h2 {
+  color: springgreen;
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.moviePageText p {
+  max-width: 30em;
+  font-size: 1.3em;
+}
+
+.moviePagePoster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moviePagePoster img {
+  border: 0.1em solid white;
+  height: 30em;
+  width: 20em;
+  object-fit: cover;
+}
+
+.movieShowtimes {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5em;
+}
+
+.showTimesList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showTime {
+  border: 0.1em solid white;
+  padding: 0.5em 1.3em;
+  margin: 1em 1em;
+  font-size: 1.4em;
+}
+
+.showTimesList p {
+  margin: 0 0.5em;
+}
+
 /* Classifications page */
 
 .classifications img {
@@ -356,4 +457,18 @@ table {
 
 .container {
   padding: 0 16px;
+}
+
+/* Travel Page */
+
+img.qabuilding {
+  width: 40em;
+}
+
+img.directions {
+  width: 30em;
+}
+
+img.travelinfo {
+  width: 50em;
 }

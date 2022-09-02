@@ -9,7 +9,7 @@ const SearchResults = (props) => {
             <div className="moviesListContainer">
                 <div className="moviesList">
                     {props.searchResult.length > 0 ? props.searchResult.map(movie => (
-                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} />
+                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} setMovie={props.setMovie} movie={movie} />
                     ))
                     : <h2>No results</h2>}
                 </div>

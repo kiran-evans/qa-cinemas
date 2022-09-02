@@ -12,20 +12,20 @@ const OpeningTimes = () => {
       </thead>
       <tbody>
         <tr>
-          <td>Mon - Fri</td>
-          <td>10.00- 23.00</td>
+          <td>Monday - Friday</td>
+          <td>10:00 - 23:00</td>
         </tr>
         <tr>
           <td>Saturday</td>
-          <td>9.00- 02.00</td>
+          <td>11:00 - 23:00</td>
         </tr>
         <tr>
             <td>Sunday</td>
-            <td>10.00-22.00</td>
+            <td>10:00 - 22:00</td>
           </tr>
           <tr>
             <td>Christmas Day</td>
-            <td>closed</td>
+            <td>Closed</td>
           </tr>
           </tbody>
       </table>

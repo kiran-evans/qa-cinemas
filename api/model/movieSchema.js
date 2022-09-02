@@ -9,15 +9,32 @@ const moviesSchema = mongoose.Schema({
   classification: {
     type: String,
     required: true,
+    min: 1,
+    max: 3
+  },
+  actors: {
+    type: String,
+    required: true,
+    min: 3
+  },
+  director: {
+    type: String,
+    required: true,
+  },
+  showtimes: {
+    type: Array,
+    required: false,
+    min: 1,
   },
   description: {
     type: String,
     required: true,
-    min: 10,
   },
   dateReleased: {
     type: String,
     required: true,
+    min: 10,
+    max: 10,
   },
   ratings: {
     type: Number,
@@ -25,7 +42,8 @@ const moviesSchema = mongoose.Schema({
   },
   poster: {
     type: String,
-    required: false
+    required: false,
+    min: 4
   }
 });
 module.exports = mongoose.model('movie', moviesSchema);

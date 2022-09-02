@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import MovieCard from '../misc/MovieCard';
 
-const NewReleasesGallery = () => {
+const NewReleasesGallery = (props) => {
 
     const [movies, setMovies] = useState([]);
 
@@ -18,7 +18,7 @@ const NewReleasesGallery = () => {
         getMovies();
     }, []);
 
-    const twoWeeks = 1000 * 60 * 60 * 24 * 14;
+    const fourWeeks = 1000 * 60 * 60 * 24 * 28;
 
     return (
         <div className="newReleasesGalleryContainer">
@@ -27,8 +27,8 @@ const NewReleasesGallery = () => {
             <div className="moviesListContainer">
                 <div className="moviesList">
                     {movies ? movies.map(movie => (
-                        ((Date.now() - new Date(Date.parse(movie.dateReleased)) < twoWeeks)) ?
-                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} />
+                        ((Date.now() - new Date(Date.parse(movie.dateReleased)) < fourWeeks)) ?
+                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} setMovie={props.setMovie} movie={movie} />
                         : ''
                     )) : <p>Error: Coudn't load movies. Make sure server is running!</p>}
                 </div>

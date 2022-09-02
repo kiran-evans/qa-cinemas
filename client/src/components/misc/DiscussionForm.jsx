@@ -18,23 +18,21 @@ const DiscussionForm = ({submitHandler, postDiscussion, submittedState}) => {
                     <option value="2">2*</option>
                     <option value="1">1*</option>                         
                 </select>
-                <br /><hr />
                 
-                <label htmlFor="discussName">Display Name: <br/></label>
-                <input type="text" required id="discussName" placeholder="E.g. IceMan23" value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
-                <br /><br />
+                <label htmlFor="discussName">Display Name:</label>
+                <input type="text" required id="discussName" placeholder="e.g. IceMan23" value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
                 
-                <label htmlFor="discussSubject">Heading: <br/></label>
-                <input type="text" required id="discussSubject" placeholder="E.g. Best Movie Ever!" value={subject} onChange={(e) => setSubject(e.target.value)}/>
-                <br /><br />
+                <label htmlFor="discussSubject">Heading:</label>
+                <input type="text" required id="discussSubject" placeholder="e.g. Best Movie Ever!" value={subject} onChange={(e) => setSubject(e.target.value)}/>
                 
-                <label htmlFor="discussText">What did you think? <br /></label>
-                <input type="text" required id="discussText" placeholder="Type here..." value={mainText} onChange={(e) => setMainText(e.target.value)}/>
+                <label htmlFor="discussText">What did you think?</label>
+                <textarea className="textArea" type="text" required id="discussText" placeholder="Type here..." value={mainText} onChange={(e) => setMainText(e.target.value)}/>
+                
+                
                 
                 {(!submittedState) ? <button type="submit" onClick={() => postDiscussion(displayName, subject, mainText, rating)}>Send!</button>
                     : <p>Your post has been submitted</p>}
             </form>
-            <hr />
         </div>
     );
 

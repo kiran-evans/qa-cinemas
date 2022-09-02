@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import DiscussionForm from "../misc/DiscussionForm";
 import DiscussionPrinter from "../misc/DiscussionPrinter";
 
 const Filter = require('bad-words');
@@ -11,15 +12,17 @@ const DiscussionBoard = () => {
 
     const [relevantPosts, setRelevantPosts] = useState([]);
 
-    const [displayName, setDisplayName] = useState('');
-    const [subject, setSubject] = useState('');
-    const [mainText, setMainText] = useState('');
-    const [rating, setRating] = useState('5');
+    const [submittedState, setSubmittedState] = useState(false);
 
+    // prevents the page from refrshing when the DiscussionFrom component is submitted.
     const submitHandler = (event) => {
         event.preventDefault();
+    }
+
+    // this block is called from the DiscussionForm component, and is passed all of the relevant states to post a new discussion to the DB.
+    const postDiscussion = (displayName, subject, mainText, rating) => {
         if (!selectedMovie) {
-            alert("Please choose the movie you wish to discuss from the dropdown menu");
+            console.log("Please choose the movie you wish to discuss from the dropdown menu");
             return null;
         }
 
@@ -35,6 +38,7 @@ const DiscussionBoard = () => {
             dateAdded: dateString
         }
 
+        // filters all of the fields for profanities. Will not allow a profane post.
         let cleanStatus = true;
         const filter = new Filter();
         for (let field of Object.values(bodyToPost)) {
@@ -47,20 +51,19 @@ const DiscussionBoard = () => {
         if (!cleanStatus) {
             return null;
         }
-   
+        
+        //makes the post request to the DB.
         axios
             .post("http://localhost:5000/api/discussions/postNewDiscussion/", bodyToPost)
             .then(res => {
                 console.log(res);
+                setSubmittedState(true);
             })
             .catch(err => console.log(err));
     
         };
-    
-    const setActiveMovie = (e) => {
-        setSelectedMovie(e.target.value);
-        };
 
+    // if the selected dropdown movie has posts, this block will get them from the DB and then the Discussion printer willrender them to the page.
     useEffect(() => {
         console.log(selectedMovie);
         if (!selectedMovie) return;
@@ -71,8 +74,14 @@ const DiscussionBoard = () => {
                 setRelevantPosts(res.data);
             })
             .catch(err => console.log(err));
-    }, [selectedMovie]);
+    }, [selectedMovie, submittedState]);
 
+    // allows the user to comment on multiple movies, but not accidentally on the same movie twice.
+    useEffect(() => {
+        setSubmittedState(false);
+    }, [selectedMovie])
+
+    // calls the movie API to populate the dropdown with the correct movies.
     useEffect(() => {
         axios
             .get("http://localhost:5000/api/movies")
@@ -90,42 +99,17 @@ const DiscussionBoard = () => {
                 <h3>But the next best thing is talking about movies!</h3>
                 <hr />
             </div>
+            
             <div id="discussionArea">
                 <label htmlFor="discussionDropDown">What movie do you want to discuss? </label>
-                <select id="discussionDropDown" onChange={(e) => setActiveMovie(e)}>
+                <select id="discussionDropDown" onChange={(e) => setSelectedMovie(e.target.value)}>
                     <option value=''>-Select a Movie to Discuss-</option>
-                    {availableMovies.map(({title}) => <option value={title}>{title}</option>)}
+                    {availableMovies.map(({title}) => <option key={title} value={title}>{title}</option>)}
                 </select>
                 <hr />
-                
-                <div id="discussionCreator">
-                    <form onSubmit={submitHandler}>
-                        <label htmlFor="ratingDropDown">Your rating: </label>
-                        <select id="ratingDropdown" defaultValue="5" onChange={(e) => setRating(e.target.value)}>
-                            <option value="5">5*</option>
-                            <option value="4">4*</option>
-                            <option value="3">3*</option>                         
-                            <option value="2">2*</option>
-                            <option value="1">1*</option>                         
-                        </select>
-                        <br /><hr />
-                        
-                        <label htmlFor="discussName">Display Name: <br/></label>
-                        <input type="text" required id="discussName" placeholder="E.g. IceMan23" value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
-                        <br /><br />
-                        
-                        <label htmlFor="discussSubject">Heading: <br/></label>
-                        <input type="text" required id="discussSubject" placeholder="E.g. Best Movie Ever!" value={subject} onChange={(e) => setSubject(e.target.value)}/>
-                        <br /><br />
-                        
-                        <label htmlFor="discussText">What did you think? <br /></label>
-                        <input type="text" required id="discussText" placeholder="Type here..." value={mainText} onChange={(e) => setMainText(e.target.value)}/>
-                        
-                        <button type="submit">Send!</button>
-                    </form>
-                    <hr />
-                </div>
+                <DiscussionForm submitHandler={submitHandler} postDiscussion={postDiscussion} submittedState={submittedState}/>
             </div>
+            
             <div id="existingPosts">
                 {(relevantPosts) ? <DiscussionPrinter posts={relevantPosts} /> : null} 
             </div>

@@ -10,7 +10,7 @@ const DiscussionPrinter = ({posts}) => {
         ratingTotal += post.rating;
     }
     const avgRating = (ratingTotal / postCount).toFixed(1);
-
+    
     return (
         <div>
             <h1>Average viewer rating: {avgRating}/5</h1>

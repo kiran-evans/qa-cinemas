@@ -1,6 +1,8 @@
 import axios from "axios";
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DiscussionPrinter from "../misc/DiscussionPrinter";
+
+const Filter = require('bad-words');
 
 const DiscussionBoard = () => {
 
@@ -12,11 +14,13 @@ const DiscussionBoard = () => {
     const [displayName, setDisplayName] = useState('');
     const [subject, setSubject] = useState('');
     const [mainText, setMainText] = useState('');
+    const [rating, setRating] = useState('5');
 
     const submitHandler = (event) => {
         event.preventDefault();
         if (!selectedMovie) {
-            alert("Please choose the movie you wish to discuss from the dropdown menu")
+            alert("Please choose the movie you wish to discuss from the dropdown menu");
+            return null;
         }
 
         const date = new Date();
@@ -24,12 +28,26 @@ const DiscussionBoard = () => {
 
         const bodyToPost = {
             movie: selectedMovie,
+            rating: parseInt(rating),
             displayName: displayName,
             header: subject,
             text: mainText,
             dateAdded: dateString
         }
-        
+
+        let cleanStatus = true;
+        const filter = new Filter();
+        for (let field of Object.values(bodyToPost)) {
+            if (filter.isProfane(field)) {
+                cleanStatus = false;
+                console.log("profanity detected");
+                break;
+            }
+        }
+        if (!cleanStatus) {
+            return null;
+        }
+   
         axios
             .post("http://localhost:5000/api/discussions/postNewDiscussion/", bodyToPost)
             .then(res => {
@@ -79,18 +97,33 @@ const DiscussionBoard = () => {
                     {availableMovies.map(({title}) => <option value={title}>{title}</option>)}
                 </select>
                 <hr />
+                
                 <div id="discussionCreator">
                     <form onSubmit={submitHandler}>
+                        <label htmlFor="ratingDropDown">Your rating: </label>
+                        <select id="ratingDropdown" defaultValue="5" onChange={(e) => setRating(e.target.value)}>
+                            <option value="5">5*</option>
+                            <option value="4">4*</option>
+                            <option value="3">3*</option>                         
+                            <option value="2">2*</option>
+                            <option value="1">1*</option>                         
+                        </select>
+                        <br /><hr />
+                        
                         <label htmlFor="discussName">Display Name: <br/></label>
                         <input type="text" required id="discussName" placeholder="E.g. IceMan23" value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
                         <br /><br />
+                        
                         <label htmlFor="discussSubject">Heading: <br/></label>
                         <input type="text" required id="discussSubject" placeholder="E.g. Best Movie Ever!" value={subject} onChange={(e) => setSubject(e.target.value)}/>
                         <br /><br />
+                        
                         <label htmlFor="discussText">What did you think? <br /></label>
                         <input type="text" required id="discussText" placeholder="Type here..." value={mainText} onChange={(e) => setMainText(e.target.value)}/>
+                        
                         <button type="submit">Send!</button>
                     </form>
+                    <hr />
                 </div>
             </div>
             <div id="existingPosts">

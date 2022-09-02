@@ -26,7 +26,7 @@ router.delete('/deleteByMovie/:movie', (req, res, next) => {
         .catch((err) => next(err))
 });
 
-router.delete('/deleteById', (req, res, next) => {
+router.delete('/deleteById/:id', (req, res, next) => {
     const { id } = req.params;
 
     Discussions.findByIdAndDelete(id)

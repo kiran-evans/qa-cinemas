@@ -3,7 +3,9 @@ const router = require('express').Router();
 const { Discussions } = require('../model/discussionModel');
 
 router.get('/getAllRelated/:movie', (req, res, next) => {
-    Discussions.find({"movie": req.params.movie})
+    const { movie } =req.params;
+    
+    Discussions.find({"movie": movie})
         .then((result) => res.status(200).json(result))
         .catch((err) => next(err));
 });
@@ -16,7 +18,7 @@ router.post('/postNewDiscussion', (req, res, next) => {
         .catch((err) => next(err));
 });
 
-router.delete('deleteByMovie', (req, res, next) => {
+router.delete('/deleteByMovie/:movie', (req, res, next) => {
     const {movie} = req.params;
 
     Discussions.deleteMany({"movie": movie})
@@ -24,7 +26,7 @@ router.delete('deleteByMovie', (req, res, next) => {
         .catch((err) => next(err))
 });
 
-router.delete('deleteById', (req, res, next) => {
+router.delete('/deleteById', (req, res, next) => {
     const { id } = req.params;
 
     Discussions.findByIdAndDelete(id)

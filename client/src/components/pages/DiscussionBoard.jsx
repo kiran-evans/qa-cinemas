@@ -14,7 +14,7 @@ const DiscussionBoard = () => {
     const [displayName, setDisplayName] = useState('');
     const [subject, setSubject] = useState('');
     const [mainText, setMainText] = useState('');
-    const [rating, setRating] = useState('');
+    const [rating, setRating] = useState('5');
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -101,7 +101,7 @@ const DiscussionBoard = () => {
                 <div id="discussionCreator">
                     <form onSubmit={submitHandler}>
                         <label htmlFor="ratingDropDown">Your rating: </label>
-                        <select id="ratingDropdown" onChange={(e) => setRating(e.target.value)}>
+                        <select id="ratingDropdown" defaultValue="5" onChange={(e) => setRating(e.target.value)}>
                             <option value="5">5*</option>
                             <option value="4">4*</option>
                             <option value="3">3*</option>                         

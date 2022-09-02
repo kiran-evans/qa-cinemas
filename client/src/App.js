@@ -17,10 +17,12 @@ import BookingPage from './components/pages/BookingPage';
 import DiscussionBoard from './components/pages/DiscussionBoard';
 import NewReleasesGallery from './components/pages/NewReleasesGallery';
 import { useState } from 'react';
-// import AboutPage from './components/pages/AboutPage';
+import MoviePage from './components/pages/MoviePage';
+import ScrumMethods from './components/pages/ScrumMethods';
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
+  const [movie, setMovie] = useState();
 
   return (
     <BrowserRouter>
@@ -33,8 +35,9 @@ function App() {
                 <Route exact path='/' element={<Home />} />
                 <Route path='/bookNow' element={<BookingPage />} />
                 <Route path='/payForTickets' element={<PaymentPage />} />
-                <Route path='/listings' element={<ListingsGallery />} />
-                <Route path='/newReleases' element={<NewReleasesGallery />} />
+                <Route path='/listings' element={<ListingsGallery setMovie={setMovie} />} />
+                <Route path='/newReleases' element={<NewReleasesGallery setMovie={setMovie} />} />
+                <Route path='/movie' element={<MoviePage movie={movie} />} />
                 <Route path='/discussionBoard' element={<DiscussionBoard />} />
                 <Route path='/screens' element={<ScreensPage />} />
                 <Route
@@ -46,11 +49,11 @@ function App() {
                 <Route path='/openingTimes' element={<OpeningTimes />} />
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
                 <Route path='/travelpage' element={<Travelpage />} />
+                <Route path='/scrum' element={<ScrumMethods />} />
                 <Route
                   path='/search'
-                  element={<SearchResults searchResult={searchResult} />}
+                  element={<SearchResults searchResult={searchResult} setMovie={setMovie} />}
                 />
-                {/* <Route path='/aboutPage' element={<AboutPage />} /> */}
               </Routes>
             </div>
             <Footer />

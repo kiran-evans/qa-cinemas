@@ -5,10 +5,9 @@ const Header = (props) => {
 
     return (
         <div className="header">
-            <div className="logo"><Link to='/'><img alt="Logo" src="https://cdn.discordapp.com/attachments/768054278933184533/1014837355909226497/qa-cinemas-logo-transp.png" width={70} height={45}/></Link></div>
+            <div className="logo"><Link to='/'><img alt="Logo" src="/logos/logo.png" /></Link></div>
             <div className="nav">
                 <div className="navLinks">
-                    <Link to='/'>Home</Link>
                     <Link to='/listings'>Now Showing</Link>
                     <Link to='/newReleases'>New Releases</Link>
                     <Link to='/bookNow'>Book Now</Link>
@@ -19,7 +18,7 @@ const Header = (props) => {
                     <Link to='/screens'>Screens</Link>
                     <Link to='/contact'>Contact Us</Link>
                     <Link to='/openingTimes'>Opening Times</Link>
-                    <Link to='/travelPage'>Travel Page</Link>
+                    <Link to='/travelPage'>Getting There</Link>
                 </div>
                 <SearchBar setSearchResult={props.setSearchResult} />
             </div>

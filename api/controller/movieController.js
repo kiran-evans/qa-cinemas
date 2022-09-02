@@ -11,6 +11,9 @@ const setMovie = asyncHandler(async (req, res) => {
   const schema = await movieSchema.create({
     title: req.body.title,
     classification: req.body.classification,
+    actors: req.body.actors,
+    director: req.body.director,
+    showtimes: req.body.showtimes,
     description: req.body.description,
     dateReleased: req.body.dateReleased,
     ratings: req.body.ratings,

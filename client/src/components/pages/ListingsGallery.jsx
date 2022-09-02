@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import MovieCard from '../misc/MovieCard';
 
-const ListingsGallery = () => {
+const ListingsGallery = (props) => {
 
     const [movies, setMovies] = useState([]);
 
@@ -26,7 +26,7 @@ const ListingsGallery = () => {
                 <div className="moviesList">
                     {movies ? movies.map(movie => (
                         ((Date.now() - new Date(Date.parse(movie.dateReleased))) >= 0) &&
-                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} />
+                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} setMovie={props.setMovie} movie={movie} />
                     )) : <p>Error: Coudn't load movies. Make sure server is running!</p>}
                 </div>
             </div>

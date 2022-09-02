@@ -15,12 +15,12 @@ const DiscussionPrinter = ({posts}) => {
         <div>
             <h1>Average viewer rating: {avgRating}/5</h1>
             {posts.map(({rating, displayName, header, text, dateAdded}) => 
-            <div key={displayName + dateAdded}>
+            <div className="post" key={displayName + dateAdded}>
                 <h2>{header}</h2>
-                <h5>Rated: {rating}/5</h5>
-                <h4>By: {displayName} --- {dateAdded}</h4>
+                <h3>By: {displayName} --- {dateAdded}</h3>
+                <h4>Rated: {rating}/5</h4>
                 <p>{text}</p>
-                <br /> <hr/>
+                <br />
             </div>
             )}
         </div>

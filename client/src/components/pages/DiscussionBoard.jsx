@@ -93,25 +93,25 @@ const DiscussionBoard = () => {
 
     return (
 
-        <div id="discussionBoard">
-            <div id="discussionIntro">
+        <div className="discussionBoard">
+            <div className="discussionIntro">
                 <h2>If there's one thing we love, it's watching movies...</h2>
                 <h3>But the next best thing is talking about movies!</h3>
-                <hr />
             </div>
             
-            <div id="discussionArea">
-                <label htmlFor="discussionDropDown">What movie do you want to discuss? </label>
-                <select id="discussionDropDown" onChange={(e) => setSelectedMovie(e.target.value)}>
-                    <option value=''>-Select a Movie to Discuss-</option>
-                    {availableMovies.map(({title}) => <option key={title} value={title}>{title}</option>)}
-                </select>
-                <hr />
-                <DiscussionForm submitHandler={submitHandler} postDiscussion={postDiscussion} submittedState={submittedState}/>
-            </div>
+            <div className="discussionArea">
+                <div className="discussionForm">
+                    <label htmlFor="discussionDropDown">What movie do you want to discuss? </label>
+                    <select id="discussionDropDown" onChange={(e) => setSelectedMovie(e.target.value)}>
+                        <option value=''>-Select a Movie to Discuss-</option>
+                        {availableMovies.map(({title}) => <option key={title} value={title}>{title}</option>)}
+                    </select>
+                    <DiscussionForm submitHandler={submitHandler} postDiscussion={postDiscussion} submittedState={submittedState}/>
+                </div>
             
-            <div id="existingPosts">
-                {(relevantPosts) ? <DiscussionPrinter posts={relevantPosts} /> : null} 
+                <div className="existingPosts">
+                    {(relevantPosts) && <DiscussionPrinter posts={relevantPosts} />} 
+                </div>
             </div>
         </div>
 

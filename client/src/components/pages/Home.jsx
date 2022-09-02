@@ -4,6 +4,8 @@ const Home = () => {
         <div className="homeContainer">
             <h1 className="homeTitle">Home</h1>
 
+            <img className="logo" src="/logos/logo.png" alt="QA Cinemas logo" />
+
             <h4>"QA Cinemas deliver on more of their moviegoing experience promises than my whole party combined."</h4>
             <h5>- Boris Johnson, 2022 Prime Minister</h5>
 

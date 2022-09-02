@@ -27,9 +27,9 @@ const NewReleasesGallery = (props) => {
             <div className="moviesListContainer">
                 <div className="moviesList">
                     {movies ? movies.map(movie => (
-                        ((Date.now() - new Date(Date.parse(movie.dateReleased)) < fourWeeks)) ?
+                        // Only display movies which are 'New Releases' i.e. less than 4 weeks old
+                        ((Date.now() - new Date(Date.parse(movie.dateReleased)) < fourWeeks)) &&
                         <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} setMovie={props.setMovie} movie={movie} />
-                        : ''
                     )) : <p>Error: Coudn't load movies. Make sure server is running!</p>}
                 </div>
             </div>

@@ -60,7 +60,7 @@ const BookingPage = () => {
         }}
       >
         <label htmlFor='name'>Movie</label>
-        <select onChange={(e) => setSelectedMovie(e.target.value)}>
+        <select required onChange={(e) => setSelectedMovie(e.target.value)}>
           <option value=''>-Select a Movie-</option>
           {availableMovies.map(({ title }) => (
             <option
@@ -73,7 +73,7 @@ const BookingPage = () => {
         </select>
         <br />
         <label htmlFor='movieTitle'>Date</label>
-        <select onChange={(e) => setSelectedDate(e.target.value)}>
+        <select required onChange={(e) => setSelectedDate(e.target.value)}>
           <option value=''>-Select a Date-</option>
           <option onChange={(e) => setSelectedDate(e.target.value)}>
             Friday: 09/09/2022
@@ -92,7 +92,7 @@ const BookingPage = () => {
         <br />
         <br />
         <label htmlFor='movieTitle'>Time</label>
-        <select onChange={(e) => setSelectedTime(e.target.value)}>
+        <select required onChange={(e) => setSelectedTime(e.target.value)}>
           <option value=''>-Select a Time-</option>
           {/* {selectedMovie.map((showtimes) => (
               <option value={showtimes}>{showtimes}</option>
@@ -106,6 +106,7 @@ const BookingPage = () => {
         <br />
         <label htmlFor='seats'>No. of Seats:</label>
         <input
+          required
           type='number'
           placeholder='Enter no. of seats...'
           id='seats'
@@ -114,6 +115,7 @@ const BookingPage = () => {
         <br />
         <p>Please select your ticket type:</p>
         <input
+          required
           type='radio'
           id='adult'
           name='ticketType'
@@ -122,6 +124,7 @@ const BookingPage = () => {
         <label htmlFor='adult'>Adult</label>
         <br />
         <input
+          required
           type='radio'
           id='child'
           name='ticketType'
@@ -130,6 +133,7 @@ const BookingPage = () => {
         <label htmlFor='child'>Child</label>
         <br />
         <input
+          required
           type='radio'
           id='concession'
           name='ticketType'
@@ -139,6 +143,7 @@ const BookingPage = () => {
         <br />
         <label htmlFor='name'>Name:</label>
         <input
+          required
           type='text'
           placeholder='Enter name...'
           id='name'

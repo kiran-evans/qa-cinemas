@@ -30,7 +30,7 @@ const MoviePage = (props) => {
                 <div className="showTimesList">
                     {movie.showtimes.length > 0 && movieAge >= 0 ? movie.showtimes.map((time, i) => (
                         <div key={i} className="showTime">{time}</div>
-                    )) : <p>There are no showtimes for this movie.</p>}
+                    )) : <p>There are no showtimes for this movie yet.</p>}
                     {/* If movie hasn't been released, 'Check back here on', convert release date into readable en-GB format. */}
                     {movieAge < 0 && <p>Check back here on {new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' }).format(released)}!</p>}
                 </div>

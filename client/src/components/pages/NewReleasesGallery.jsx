@@ -24,36 +24,33 @@ const NewReleasesGallery = (props) => {
       <h1 className='newReleasesGalleryTitle'>
         New Releases &amp; Coming Soon
       </h1>
-      return (
-      <div className='newReleasesGalleryContainer'>
-        <h1 className='newReleasesGalleryTitle'>
-          New Releases &amp; Coming Soon
-        </h1>
 
-        <div className='moviesListContainer'>
-          <div className='moviesList'>
-            {movies ? (
-              movies.map(
-                (movie) =>
-                  // Only display movies which are 'New Releases' i.e. less than 4 weeks old
-                  Date.now() - new Date(Date.parse(movie.dateReleased)) <
-                    fourWeeks && (
-                    <MovieCard
-                      key={movie._id}
-                      title={movie.title}
-                      classification={movie.classification}
-                      description={movie.description}
-                      dateReleased={movie.dateReleased}
-                      poster={movie.poster}
-                      setMovie={props.setMovie}
-                      movie={movie}
-                    />
-                  )
-              )
-            ) : (
-              <p>Error: Coudn't load movies. Make sure server is running!</p>
-            )}
-          </div>
+      <div className='moviesListContainer'>
+        <div className='moviesList'>
+          {movies ? (
+            movies.map(
+              (movie) =>
+                // Only display movies which are 'New Releases' i.e. less than 4 weeks old
+                Date.now() - new Date(Date.parse(movie.dateReleased)) <
+                  fourWeeks && (
+                  <MovieCard
+                    key={movie._id}
+                    title={movie.title}
+                    classification={movie.classification}
+                    description={movie.description}
+                    dateReleased={movie.dateReleased}
+                    poster={movie.poster}
+                    actors={movie.actors}
+                    director={movie.director}
+                    showtimes={movie.showtimes}
+                    setMovie={props.setMovie}
+                    movie={movie}
+                  />
+                )
+            )
+          ) : (
+            <p>Error: Coudn't load movies. Make sure server is running!</p>
+          )}
         </div>
       </div>
     </div>

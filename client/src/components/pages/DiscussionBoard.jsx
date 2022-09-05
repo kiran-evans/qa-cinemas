@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import DiscussionForm from "../misc/DiscussionForm";
 import DiscussionPrinter from "../misc/DiscussionPrinter";
 
-const Filter = require('bad-words');
+var Filter = require('bad-words'),
+filter = new Filter();
 
 const DiscussionBoard = () => {
 
@@ -31,7 +32,7 @@ const DiscussionBoard = () => {
 
         const bodyToPost = {
             movie: selectedMovie,
-            rating: parseInt(rating),
+            rating: rating,
             displayName: displayName,
             header: subject,
             text: mainText,
@@ -39,18 +40,11 @@ const DiscussionBoard = () => {
         }
 
         // filters all of the fields for profanities. Will not allow a profane post.
-        let cleanStatus = true;
-        const filter = new Filter();
-        for (let field of Object.values(bodyToPost)) {
-            if (filter.isProfane(field)) {
-                cleanStatus = false;
-                console.log("profanity detected");
-                break;
-            }
-        }
-        if (!cleanStatus) {
-            return null;
-        }
+          for (let x of Object.keys(bodyToPost)) {
+            console.log(bodyToPost[x]);
+            bodyToPost[x] = filter.clean(bodyToPost[x]);
+            console.log(bodyToPost.x);
+        };
         
         //makes the post request to the DB.
         axios

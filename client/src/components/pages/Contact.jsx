@@ -38,6 +38,7 @@ const Contact = () => {
           minLength={3}
           maxLength={20}
           onChange={(e) => setHeader(e.target.value)}
+          placeholder='e.g. Love this website!'
         />
         <label>Email (*)</label>
         <input
@@ -45,14 +46,16 @@ const Contact = () => {
           type='email'
           required
           onChange={(e) => setuserEmail(e.target.value)}
+          placeholder='e.g. joe.bloggs@gmail.com'
         />
 
         <label>Body (*)</label>
-        <input
-          className='FormInputBody'
+        <textarea
+          className='textArea'
           type='text'
           required
           onChange={(e) => setBody(e.target.value)}
+          placeholder='Type here...'
         />
         <button className='formSubmitButton' type='submit' disabled={isLoading}>
           {isLoading && <i className='fas fa-spinner fa-pulse' />}

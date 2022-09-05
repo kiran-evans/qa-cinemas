@@ -107,11 +107,15 @@ input, textarea {
 }
 
 *:focus {
-  outline: none;
+  outline: 0.1em solid skyblue;
 }
 
 *::placeholder {
-  color: white;
+  color: rgba(255, 255, 255, .2);
+}
+
+input:focus, textarea:focus {
+  background-color: rgba(255, 255, 255, .2);
 }
 
 select {
@@ -146,7 +150,7 @@ button:hover {
 }
 
 button:active {
-  background-color: #002;
+  background-color: rgba(0, 0, 0, 0);
   color: white;
 }
 
@@ -244,15 +248,15 @@ td {
   padding: 0 2em;
 }
 
-.searchInput {
-  flex: 1;
-}
-
 .searchForm {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.searchInput {
+  flex: 1;
 }
 
 .searchButton {
@@ -302,7 +306,7 @@ img.logo {
 
 .movieCard:hover {
   cursor: pointer;
-  background-color: #224;
+  background-color: rgba(255, 255, 255, .2);
   border-color: white;
 }
 

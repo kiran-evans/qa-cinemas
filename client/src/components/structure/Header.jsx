@@ -8,7 +8,6 @@ const Header = (props) => {
             <div className="logo"><Link to='/'><img alt="Logo" src="/logos/qa-cinemas-logo-transp.png" width={70} height={45}/></Link></div>
             <div className="nav">
                 <div className="navLinks">
-                    <Link to='/'>Home</Link>
                     <Link to='/listings'>Now Showing</Link>
                     <Link to='/newReleases'>New Releases</Link>
                     <Link to='/bookNow'>Book Now</Link>
@@ -19,7 +18,7 @@ const Header = (props) => {
                     <Link to='/screens'>Screens</Link>
                     <Link to='/contact'>Contact Us</Link>
                     <Link to='/openingTimes'>Opening Times</Link>
-                    <Link to='/travelPage'>Travel Page</Link>
+                    <Link to='/travelPage'>Getting There</Link>
                 </div>
                 <SearchBar setSearchResult={props.setSearchResult} />
             </div>

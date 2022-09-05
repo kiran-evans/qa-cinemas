@@ -5,32 +5,51 @@ import { Link } from 'react-router-dom';
 
 const BookingPage = () => {
   const [availableMovies, setAvailableMovies] = useState([]);
+  const [availableMovie, setAvailableMovie] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [selectedSeat, setSelectedSeat] = useState('');
+  const [TicketType, setTicketType] = useState('');
+  const [name, setName] = useState('');
   const [data, setData] = useState([]);
 
   const [booking, setBooking] = useState({});
 
-  const setEntry = (event) => {
-    const { movieTitle, Date, Time, seats, ticketType, name, value } =
-      event.target;
-    setBooking((prevValue) => ({
-      ...prevValue,
-      [movieTitle]: value,
-      [seats]: value,
-      [Date]: value,
-      [Time]: value,
-      [ticketType]: value,
-      [name]: value,
-    }));
+  const Booking = async (e) => {
+    e.preventDefault();
+    // setIsLoading(true);
+    const Submit = 'http://localhost:5000/api/booking';
+
+    const res = await axios.post('/api/booking', {
+      selectedMovie: selectedMovie,
+      selectedDate: selectedDate,
+      selectedTime: selectedTime,
+      selectedSeat: selectedSeat,
+      TicketType: TicketType,
+      name: name,
+    });
+    // setIsLoading(false);
+    console.log(res.data);
   };
 
-  const postData = () => {
-    axios.post(`http://localhost:5000/api/movies`, booking).then((response) => {
-      console.log(response);
-    });
+  const getMovie = async (e) => {
+    e.preventDefault();
+    // setIsLoading(true);
+    const Submit = 'http://localhost:5000/api/movies';
+
+    const res = await axios.get(`/api/movies/${selectedMovie._id}`);
+    setSelectedMovie(res.data);
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/movie/${selectedMovie._id}`)
+      .then((res) => {
+        setAvailableMovie(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   useEffect(() => {
     axios
@@ -50,17 +69,17 @@ const BookingPage = () => {
           <select onChange={(e) => setSelectedMovie(e.target.value)}>
             <option value=''>-Select a Movie-</option>
             {availableMovies.map(({ title }) => (
-              <option value={booking.movieTitle}>{title}</option>
+              <option value={title}>{title}</option>
             ))}
           </select>
           <br />
           <label htmlFor='movieTitle'>Date</label>
           <select onChange={(e) => setSelectedDate(e.target.value)}>
             <option value=''>-Select a Date-</option>
-            <option value={booking.Date}>Friday: 09/09/2022</option>
+            {/* <option value={booking.Date}>Friday: 09/09/2022</option>
             <option value={booking.Date}>Saturday: 10/09/2022</option>
             <option value={booking.Date}>Sunday: 11/09/2022</option>
-            <option value={booking.Date}>Monday: 12/09/2022</option>
+            <option value={booking.Date}>Monday: 12/09/2022</option> */}
             ))
           </select>
           <br />
@@ -68,10 +87,13 @@ const BookingPage = () => {
           <label htmlFor='movieTitle'>Time</label>
           <select onChange={(e) => setSelectedTime(e.target.value)}>
             <option value=''>-Select a Time-</option>
-            <option value={booking.Time}>10:30am</option>
+            {selectedMovie.map((showtimes) => (
+              <option value={showtimes}>{showtimes}</option>
+            ))}
+            {/* <option value={booking.Time}>10:30am</option>
             <option value={booking.Time}>11:30am</option>
             <option value={booking.Time}>4pm</option>
-            <option value={booking.Time}>8pm</option>
+            <option value={booking.Time}>8pm</option> */}
             ))
           </select>
           <br />
@@ -81,7 +103,7 @@ const BookingPage = () => {
             placeholder='Enter no. of seats...'
             id='seats'
             value={booking.seats}
-            onChange={setEntry}
+            onChange={setSelectedSeat}
           />
           <br />
           <p>Please select your ticket type:</p>
@@ -90,7 +112,7 @@ const BookingPage = () => {
             id='adult'
             name='ticketType'
             value={booking.ticketType}
-            onChange={setEntry}
+            onChange={setTicketType}
           />
           <label htmlFor='adult'>Adult</label>
           <br />
@@ -99,7 +121,7 @@ const BookingPage = () => {
             id='child'
             name='ticketType'
             value={booking.ticketType}
-            onChange={setEntry}
+            onChange={setTicketType}
           />
           <label htmlFor='child'>Child</label>
           <br />
@@ -108,7 +130,7 @@ const BookingPage = () => {
             id='concession'
             name='ticketType'
             value={booking.ticketType}
-            onChange={setEntry}
+            onChange={setTicketType}
           />
           <label htmlFor='concession'>Concession</label>
           <br />
@@ -118,10 +140,10 @@ const BookingPage = () => {
             placeholder='Enter name...'
             id='name'
             value={booking.name}
-            onChange={setEntry}
+            onChange={setName}
           />
           <br />
-          <button type='button' onClick={postData}>
+          <button type='button' onClick={Booking}>
             Book Tickets!
           </button>
         </form>

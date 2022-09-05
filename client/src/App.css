@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+/* Main */
+
 .App {
   height: 100vh;
   width: 100vw;
@@ -25,16 +27,19 @@
   flex-direction: column;
   overflow-y: auto;
   align-items: center;
-  justify-content: space-between;
 }
 
 .appBody {
-  padding: 0 5em;
+  flex: 1;
+  width: 100%;
+  padding-bottom: 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 }
+
+/* Defaults */
 
 h1 {
   font-size: 2em;
@@ -59,21 +64,40 @@ h4 {
   text-align: center;
 }
 
+h5 {
+  color: springgreen;
+  font-size: 1.2em;
+  margin: 0.4em 0;
+}
+
 p {
-  font-size: 1.1em;
+  font-size: 1.2em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: skyblue;
 }
 
 li {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 label {
   color: white;
-  font-size: 1em;
+  font-size: 1.1em;
   margin: 1em 0;
 }
 
-input {
+input, textarea {
   background: none;
   border: 0.1em solid white;
   color: white;
@@ -82,12 +106,26 @@ input {
   font-size: 1.1em;
 }
 
-input:focus {
+*:focus {
   outline: none;
 }
 
-input::placeholder {
+*::placeholder {
   color: white;
+}
+
+select {
+  align-self: flex-start;
+  font-size: 1.2em;
+  color: white;
+  background-color: #002;
+  border: 0.1em solid white;
+  border-radius: 1.5em;
+  padding: 0.3em 1em;
+}
+
+option {
+  padding: 5em 0;
 }
 
 button {
@@ -113,32 +151,41 @@ button:active {
 }
 
 table {
-  width: 1400px;
-  height: 400px;
+  width: 70em;
+  height: 50em;
   border-collapse: collapse;
-  }
+}
   
-  th {
-  border-bottom: 1px solid black;
-  border: 2px solid black;
-  }
+th {
+  border: 0.1em solid white;
+  border-bottom-width: 0.2em;
+  font-size: 2em;
+}
   
-  td {
+td {
   text-align: center;
-  border: 2px solid black;
-  }
+  border: 0.1em solid white;
+  font-size: 2em;
+}
 
 /* Header and Footer */
 
 .header {
-  height: 10%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 1%;
+  padding-bottom: 1em;
   background-color: #225;
+
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 15px -2px rgba(0,0,0,0); 
+  box-shadow: 0px 10px 13px -7px #000000, 0px 0px 15px -2px rgba(0,0,0,0);
+  z-index: 1;
+}
+
+.logo img {
+  width: 20em;
+  padding-top: 1em;
 }
 
 .footer {
@@ -152,26 +199,25 @@ table {
 }
 
 .nav {
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 .navLinks {
-  flex: 7;
+  flex: 8;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .navLinks>* {
   font-size: 1.4em;
   color: white;
   text-decoration: none;
-  padding-left: 0.6em;
-  padding-right: 0.3em;
-  border-bottom: 0.1em solid rgba(0, 0, 0, 0);
+  padding-left: 0.5em;
+  padding-right: 0.4em;
   border-left: 0.1em solid white;
 }
 
@@ -191,10 +237,15 @@ table {
 /* Searchbar */
 
 .searchBar {
-  flex: 2;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 2em;
+}
+
+.searchInput {
+  flex: 1;
 }
 
 .searchForm {
@@ -204,12 +255,8 @@ table {
   justify-content: center;
 }
 
-.searchInput {
-  width: 50%;
-}
-
 .searchButton {
-  margin-left: 2%;
+  margin-left: 1em;
 }
 
 /* Home */
@@ -220,6 +267,12 @@ table {
   align-items: center;
   justify-content: center;
 }
+
+img.logo {
+  width: 50em;
+}
+
+/* Movie Galleries */
 
 .moviesListContainer {
   display: flex;
@@ -245,6 +298,12 @@ table {
   padding: 2em 1em;
   margin: 1em 1em;
   margin-bottom: 10%;
+}
+
+.movieCard:hover {
+  cursor: pointer;
+  background-color: #224;
+  border-color: white;
 }
 
 .moviePoster {
@@ -296,8 +355,96 @@ table {
   margin-bottom: 1em;
 }
 
-.seeTimesButton {
-  margin-top: 1em;
+.movieCard h3 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.movieCard .showTimesList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.movieCard .showTime {
+  font-size: 1.1em;
+  margin: 0.2em;
+}
+
+/* Movie Individual Pages */
+
+.moviePage {
+  display: flex;
+  align-items: flex-start;
+  padding: 5em;
+}
+
+.movieInfo {
+  display: flex;
+}
+
+.movieInfo>* {
+  margin: 0 1em;
+}
+
+.moviePageText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moviePageText h1 {
+  font-size: 2.2em;
+  margin-top: 0.3em;
+}
+
+.moviePageText h2 {
+  color: springgreen;
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.moviePageText p {
+  max-width: 30em;
+  font-size: 1.3em;
+}
+
+.moviePagePoster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moviePagePoster img {
+  border: 0.1em solid white;
+  height: 30em;
+  width: 20em;
+  object-fit: cover;
+}
+
+.movieShowtimes {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5em;
+}
+
+.showTimesList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showTime {
+  border: 0.1em solid white;
+  padding: 0.5em 1.3em;
+  margin: 1em 1em;
+  font-size: 1.4em;
+}
+
+.showTimesList p {
+  margin: 0 0.5em;
 }
 
 /* Classifications page */
@@ -356,4 +503,99 @@ table {
 
 .container {
   padding: 0 16px;
+}
+
+/* Travel Page */
+
+img.qabuilding {
+  width: 40em;
+}
+
+img.directions {
+  width: 30em;
+}
+
+img.travelinfo {
+  width: 50em;
+}
+
+/* Discussion Board */
+
+.discussionBoard {
+  flex: 1;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussionArea {
+  display: flex;
+}
+
+.discussionArea>* {
+  margin: 0 1em;
+}
+
+.discussionForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#discussionCreator form {
+  display: flex;
+  flex-direction: column;
+}
+
+.textArea {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  min-width: 30em;
+  max-width: 30em;
+  min-height: 12em;
+  padding: 1.2em 1em;
+  border: 0.1em solid white;
+  border-radius: 1.5em;
+  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#discussionCreator form button {
+  width: 5em;
+  margin-top: 1em;
+}
+
+.existingPosts {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.existingPosts h1 {
+  display: inline-block;
+  border-bottom: 0.1em solid white;
+  font-size: 1.4em;
+}
+
+.existingPosts h2 {
+  text-align: left;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.existingPosts h3 {
+  text-align: left;
+  font-size: 1.3em;
+  font-weight: 300;
+  margin: 0;
+}
+
+.existingPosts h4 {
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.post {
+  padding: 1em 2em;
+  border: 0.1em solid white;
 }

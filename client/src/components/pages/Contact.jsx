@@ -5,45 +5,30 @@ const Contact = () => {
   const [header, setHeader] = useState('');
   const [userEmail, setuserEmail] = useState('');
   const [body, setBody] = useState('');
-  const [errorValue, setErrorValue] = useState('');
-  const [successfulSubmission, setSuccessfulSubmission] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const contactForm = (e) => {
-    setIsLoading(true);
+  const contactForm = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const formSubmit = 'http://localhost:5000/api/contact';
-    axios
-      .post(formSubmit, {
-        header: header,
-        useEmail: userEmail,
-        body: body,
-      })
-      .then(function (response) {
-        console.log(response.data);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
-        if (response.status === 200) {
-          setErrorValue('Submit Successful');
-          setSuccessfulSubmission(true);
-          setTimeout(() => {
-            setSuccessfulSubmission(false);
-          }, 1500);
-        }
-      })
-      .catch((err) => {
-        setErrorValue(JSON.stringify(err.response));
-        console.log(JSON.stringify(err.response));
-      });
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
+
+    const res = await axios.post('/api/contact', {
+      header: header,
+      userEmail: userEmail,
+      body: body,
+    });
+    setIsLoading(false);
+    console.log(res.data);
   };
 
   return (
     <div className='ContactForm'>
-      <form className=' Form' onSubmit={() => contactForm()}>
+      <form
+        className=' Form'
+        onSubmit={(e) => {
+          contactForm(e);
+        }}
+      >
         <h2 className='FormHeader'>Submit a query</h2>
         <label>Header (*)</label>
         <input

@@ -7,10 +7,18 @@ const getMovie = asyncHandler(async (req, res) => {
   res.status(200).json(schema);
 });
 
+const getMovieByID = asyncHandler(async (req, res) => {
+  const schema = await movieSchema.findById(req.params.id);
+  res.status(200).json(schema);
+});
+
 const setMovie = asyncHandler(async (req, res) => {
   const schema = await movieSchema.create({
     title: req.body.title,
     classification: req.body.classification,
+    actors: req.body.actors,
+    director: req.body.director,
+    showtimes: req.body.showtimes,
     description: req.body.description,
     dateReleased: req.body.dateReleased,
     ratings: req.body.ratings,
@@ -49,6 +57,7 @@ const deleteMovie = asyncHandler(async (req, res) => {
 
 module.exports = {
   getMovie,
+  getMovieByID,
   setMovie,
   updateMovie,
   deleteMovie,

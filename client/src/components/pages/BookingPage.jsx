@@ -1,44 +1,33 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const BookingPage = () => {
   const [availableMovies, setAvailableMovies] = useState([]);
-  const [title, setSelectedMovie] = useState('');
-  const [date, setSelectedDate] = useState('');
-  const [time, setSelectedTime] = useState('');
-  const [seats, setSelectedSeat] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState('');
+  const [selectedMovieId, setSelectedMovieId] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
+  const [numberOfSeats, setNumberOfSeats] = useState('');
   const [ticketType, setTicketType] = useState('');
   const [name, setName] = useState('');
-  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const Booking = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // const Submit = 'http://localhost:5000/api/booking';
 
     const res = await axios.post('/api/booking', {
-      title: title,
-      date: date,
-      time: time,
-      seats: seats,
+      title: selectedMovie.title,
+      date: selectedDate,
+      time: selectedTime,
+      seats: numberOfSeats,
       ticketType: ticketType,
       name: name,
     });
     setIsLoading(false);
     console.log(res.data);
   };
-
-  // const getMovie = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   const Submit = 'http://localhost:5000/api/movies';
-
-  //   const res = await axios.get(`/api/movies/${selectedMovie._id}`);
-  //   setSelectedMovie(res.data);
-  // };
 
   useEffect(() => {
     axios
@@ -49,71 +38,63 @@ const BookingPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
+
+  useEffect(() => {
+
+    const handleSelectMovie = async () => {
+      const res = await axios.get(`http://localhost:5000/api/movies/${selectedMovieId}`);
+      setSelectedMovie(res.data);
+    }
+
+    handleSelectMovie();
+
+  }, [selectedMovieId])
+
   return (
     <div id='bookingForm' className='ContactForm'>
       <h3> Ticket Booking </h3>
-      <form
-        action=''
-        className='Form'
-        onSubmit={(e) => {
-          Booking(e);
-        }}
-      >
+      <form className='Form' onSubmit={(e) => Booking(e)}>
         <label htmlFor='name'>Movie</label>
-        <select required onChange={(e) => setSelectedMovie(e.target.value)}>
+        <select required onChange={(e) => setSelectedMovieId(e.target.value)} value={selectedMovie._id}>
           <option value=''>-Select a Movie-</option>
-          {availableMovies.map(({ title }) => (
-            <option
-              value={title}
-              onChange={(e) => setSelectedMovie(e.target.value)}
-            >
-              {title}
-            </option>
+          {availableMovies.map(movie => (
+            <option key={movie._id} value={movie._id}>{movie.title}</option>
           ))}
         </select>
-        <br />
-        <label htmlFor='movieTitle'>Date</label>
-        <select required onChange={(e) => setSelectedDate(e.target.value)}>
-          <option value=''>-Select a Date-</option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Friday: 09/09/2022
-          </option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Saturday: 10/09/2022
-          </option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Sunday: 11/09/2022
-          </option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Monday: 12/09/2022
-          </option>
-          ))
-        </select>
-        <br />
-        <br />
-        <label htmlFor='movieTitle'>Time</label>
-        <select required onChange={(e) => setSelectedTime(e.target.value)}>
-          <option value=''>-Select a Time-</option>
-          {/* {selectedMovie.map((showtimes) => (
-              <option value={showtimes}>{showtimes}</option>
-            ))} */}
-          <option>10:30am</option>
-          <option>11:30am</option>
-          <option>4pm</option>
-          <option>8pm</option>
-          ))
-        </select>
-        <br />
+
+        {selectedMovie &&
+          
+          <div>
+        
+          <label htmlFor='movieTitle'>Date</label>
+          <select required onChange={(e) => setSelectedDate(e.target.value)} value={selectedDate}>
+            <option value=''>-Select a Date-</option>
+            {selectedMovie.showdates && selectedMovie.showdates.map((showdate, i) => (
+              <option key={i} value={showdate}>{showdate}</option>
+            ))}
+          </select>
+
+          <label htmlFor='movieTitle'>Time</label>
+          <select required onChange={(e) => setSelectedTime(e.target.value)} value={selectedTime}>
+            <option value=''>-Select a Time-</option>
+            {selectedMovie.showtimes && selectedMovie.showtimes.map((showtimes, i) => (
+                <option key={i} value={showtimes}>{showtimes}</option>
+              ))}
+          </select>
+        
         <label htmlFor='seats'>No. of Seats:</label>
         <input
           required
           type='number'
           placeholder='Enter no. of seats...'
           id='seats'
-          onChange={(e) => setSelectedSeat(e.target.value)}
+          onChange={(e) => setNumberOfSeats(e.target.value)}
+          value={numberOfSeats}
         />
-        <br />
+        
         <p>Please select your ticket type:</p>
+
+        <label htmlFor='adult'>Adult</label>
         <input
           required
           type='radio'
@@ -121,8 +102,8 @@ const BookingPage = () => {
           name='ticketType'
           onChange={(e) => setTicketType(e.target.value)}
         />
-        <label htmlFor='adult'>Adult</label>
-        <br />
+
+        <label htmlFor='child'>Child</label>
         <input
           required
           type='radio'
@@ -130,8 +111,8 @@ const BookingPage = () => {
           name='ticketType'
           onChange={(e) => setTicketType(e.target.value)}
         />
-        <label htmlFor='child'>Child</label>
-        <br />
+
+        <label htmlFor='concession'>Concession</label>
         <input
           required
           type='radio'
@@ -139,8 +120,7 @@ const BookingPage = () => {
           name='ticketType'
           onChange={(e) => setTicketType(e.target.value)}
         />
-        <label htmlFor='concession'>Concession</label>
-        <br />
+
         <label htmlFor='name'>Name:</label>
         <input
           required
@@ -149,11 +129,15 @@ const BookingPage = () => {
           id='name'
           onChange={(e) => setName(e.target.value)}
         />
-        <br />
+        
         <button type='submit'>
           {isLoading && <i className='fas fa-spinner fa-pulse' />}
           {!isLoading && 'Book Tickets!'}
         </button>
+          
+          </div>
+        
+        }
       </form>
     </div>
   );

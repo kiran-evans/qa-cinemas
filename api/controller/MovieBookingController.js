@@ -15,7 +15,7 @@ const getBookingsByID = asyncHandler(async (req, res) => {
 const setBooking = asyncHandler(async (req, res) => {
   const schema = await bookingSchema.create({
     title: req.body.title,
-    classdateification: req.body.date,
+    date: req.body.date,
     time: req.body.time,
     seats: req.body.seats,
     ticketType: req.body.ticketType,

@@ -15,10 +15,10 @@ import Travelpage from './components/pages/Travelpage';
 import ListingsGallery from './components/pages/ListingsGallery';
 import SearchResults from './components/pages/SearchResults';
 import BookingPage from './components/pages/BookingPage';
-
 import NewReleasesGallery from './components/pages/NewReleasesGallery';
 import MoviePage from './components/pages/MoviePage';
 import ScrumMethods from './components/pages/ScrumMethods';
+import DiscussionBoard from './components/pages/DiscussionBoard';
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
@@ -38,7 +38,7 @@ function App() {
                 <Route path='/listings' element={<ListingsGallery setMovie={setMovie} />} />
                 <Route path='/newReleases' element={<NewReleasesGallery setMovie={setMovie} />} />
                 <Route path='/movie' element={<MoviePage movie={movie} />} />
-                <Route path='/discussionBoard' element={<Home />} />
+                <Route path='/discussionBoard' element={<DiscussionBoard />} />
                 <Route path='/screens' element={<ScreensPage />} />
                 <Route
                   path='/classifications'

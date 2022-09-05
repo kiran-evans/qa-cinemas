@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import DiscussionForm from "../misc/DiscussionForm";
 import DiscussionPrinter from "../misc/DiscussionPrinter";
 
-const Filter = require('bad-words');
+var Filter = require('bad-words'),
+filter = new Filter();
 
 const DiscussionBoard = () => {
 
@@ -22,7 +23,6 @@ const DiscussionBoard = () => {
     // this block is called from the DiscussionForm component, and is passed all of the relevant states to post a new discussion to the DB.
     const postDiscussion = (displayName, subject, mainText, rating) => {
         if (!selectedMovie) {
-            console.log("Please choose the movie you wish to discuss from the dropdown menu");
             return null;
         }
 
@@ -31,7 +31,7 @@ const DiscussionBoard = () => {
 
         const bodyToPost = {
             movie: selectedMovie,
-            rating: parseInt(rating),
+            rating: rating,
             displayName: displayName,
             header: subject,
             text: mainText,
@@ -39,24 +39,14 @@ const DiscussionBoard = () => {
         }
 
         // filters all of the fields for profanities. Will not allow a profane post.
-        let cleanStatus = true;
-        const filter = new Filter();
-        for (let field of Object.values(bodyToPost)) {
-            if (filter.isProfane(field)) {
-                cleanStatus = false;
-                console.log("profanity detected");
-                break;
-            }
-        }
-        if (!cleanStatus) {
-            return null;
-        }
+          for (let x of Object.keys(bodyToPost)) {
+            bodyToPost[x] = filter.clean(bodyToPost[x]);
+        };
         
         //makes the post request to the DB.
         axios
             .post("http://localhost:5000/api/discussions/postNewDiscussion/", bodyToPost)
             .then(res => {
-                console.log(res);
                 setSubmittedState(true);
             })
             .catch(err => console.log(err));
@@ -65,12 +55,10 @@ const DiscussionBoard = () => {
 
     // if the selected dropdown movie has posts, this block will get them from the DB and then the Discussion printer willrender them to the page.
     useEffect(() => {
-        console.log(selectedMovie);
         if (!selectedMovie) return;
         axios
             .get("http://localhost:5000/api/discussions/getAllRelated/" + selectedMovie)
             .then(res => {
-                console.log("data", res.data);
                 setRelevantPosts(res.data);
             })
             .catch(err => console.log(err));

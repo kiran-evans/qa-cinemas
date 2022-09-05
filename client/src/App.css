@@ -599,3 +599,58 @@ img.travelinfo {
   padding: 1em 2em;
   border: 0.1em solid white;
 }
+
+/* Home */
+
+#homeTitle {
+  text-align: center;
+}
+
+#homeIntro {
+  display: table;
+  width: 1500px;
+}
+#homeIntroRow {
+  display: table-row;
+}
+
+#introImage {
+  display: table-cell;
+  width: 500px;
+}
+#introText{
+  display: table-cell;
+  width: 800px;
+  text-align: left;
+  vertical-align: top;
+  margin: 10px;
+  color: white;
+}
+
+#homeWrapper {
+  display: table;
+  width: 1500px;
+}
+#homeWrapperRow {
+  display: table-row;
+}
+#feature1 {
+  display: table-cell;
+  width: 500px;
+  text-align: center;
+}
+#feature2 {
+  display: table-cell;
+  width: 500px;
+  text-align: center;
+}
+#feature3 {
+  display: table-cell;
+  width: 500px;
+  text-align: center;
+
+}
+.focus {
+  color: springgreen;
+  font-weight: bold;
+}

@@ -19,6 +19,7 @@ import NewReleasesGallery from './components/pages/NewReleasesGallery';
 import MoviePage from './components/pages/MoviePage';
 import ScrumMethods from './components/pages/ScrumMethods';
 import DiscussionBoard from './components/pages/DiscussionBoard';
+import AboutUs from './components/pages/AboutUs';
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
@@ -50,6 +51,7 @@ function App() {
                 <Route path='/meetTheTeam' element={<MeetTheTeam />} />
                 <Route path='/travelpage' element={<Travelpage />} />
                 <Route path='/scrum' element={<ScrumMethods />} />
+                <Route path='/aboutus' element={<AboutUs />} />
                 <Route
                   path='/search'
                   element={<SearchResults searchResult={searchResult} setMovie={setMovie} />}

@@ -28,7 +28,7 @@ const ListingsGallery = (props) => {
                     {movies ? movies.map(movie => (
                         // Only display movies which have already been released
                         ((Date.now() - new Date(Date.parse(movie.dateReleased))) >= 0) &&
-                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} setMovie={props.setMovie} movie={movie} />
+                        <MovieCard key={movie._id} title={movie.title} classification={movie.classification} description={movie.description} dateReleased={movie.dateReleased} poster={movie.poster} actors={movie.actors} director={movie.director} showtimes={movie.showtimes} setMovie={props.setMovie} movie={movie} />
                     )) : <p>Error: Coudn't load movies. Make sure server is running!</p>}
                 </div>
             </div>

@@ -34,4 +34,10 @@ router.delete('/deleteById/:id', (req, res, next) => {
         .catch((err) => next(err))
 });
 
+router.delete('/massDelete', (req, res, next) => {
+    Discussions.deleteMany({})
+        .then((result) => res.status(204).json(result))
+        .catch((err) => next(err))
+});
+
 module.exports = router;

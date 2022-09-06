@@ -26,6 +26,10 @@ const bookingSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    paid: {
+      type: Boolean,
+      required: true,
+    }
   },
   {
     timestamps: true,

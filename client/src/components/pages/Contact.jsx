@@ -10,7 +10,6 @@ const Contact = () => {
   const contactForm = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const formSubmit = 'http://localhost:5000/api/contact';
 
     const res = await axios.post('/api/contact', {
       header: header,

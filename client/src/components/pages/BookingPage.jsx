@@ -1,160 +1,162 @@
 import axios from 'axios';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const BookingPage = () => {
   const [availableMovies, setAvailableMovies] = useState([]);
-  const [title, setSelectedMovie] = useState('');
-  const [date, setSelectedDate] = useState('');
-  const [time, setSelectedTime] = useState('');
-  const [seats, setSelectedSeat] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState();
+  const [selectedMovieId, setSelectedMovieId] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
+  const [numberOfSeats, setNumberOfSeats] = useState('');
   const [ticketType, setTicketType] = useState('');
   const [name, setName] = useState('');
-  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
   const Booking = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // const Submit = 'http://localhost:5000/api/booking';
 
     const res = await axios.post('/api/booking', {
-      title: title,
-      date: date,
-      time: time,
-      seats: seats,
+      title: selectedMovie.title,
+      date: selectedDate,
+      time: selectedTime,
+      seats: numberOfSeats,
       ticketType: ticketType,
       name: name,
+      paid: 'false',
     });
     setIsLoading(false);
-    console.log(res.data);
+    setIsConfirmed(res);
   };
-
-  // const getMovie = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   const Submit = 'http://localhost:5000/api/movies';
-
-  //   const res = await axios.get(`/api/movies/${selectedMovie._id}`);
-  //   setSelectedMovie(res.data);
-  // };
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/movies')
+      .get('http://localhost:5000/api/movies') // Get all available movies in db
       .then((res) => {
         setAvailableMovies(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
+
+  useEffect(() => {
+
+    const handleSelectMovie = async () => {
+      const res = await axios.get(`http://localhost:5000/api/movies/${selectedMovieId}`); // Get entire movie object from db once user selected movie
+      setSelectedMovie(res.data);
+    }
+
+    handleSelectMovie();
+
+  }, [selectedMovieId])
+
   return (
-    <div id='bookingForm' className='ContactForm'>
-      <h3> Ticket Booking </h3>
-      <form
-        action=''
-        className='Form'
-        onSubmit={(e) => {
-          Booking(e);
-        }}
-      >
-        <label htmlFor='name'>Movie</label>
-        <select required onChange={(e) => setSelectedMovie(e.target.value)}>
-          <option value=''>-Select a Movie-</option>
-          {availableMovies.map(({ title }) => (
-            <option
-              value={title}
-              onChange={(e) => setSelectedMovie(e.target.value)}
-            >
-              {title}
-            </option>
-          ))}
-        </select>
-        <br />
-        <label htmlFor='movieTitle'>Date</label>
-        <select required onChange={(e) => setSelectedDate(e.target.value)}>
-          <option value=''>-Select a Date-</option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Friday: 09/09/2022
-          </option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Saturday: 10/09/2022
-          </option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Sunday: 11/09/2022
-          </option>
-          <option onChange={(e) => setSelectedDate(e.target.value)}>
-            Monday: 12/09/2022
-          </option>
-          ))
-        </select>
-        <br />
-        <br />
-        <label htmlFor='movieTitle'>Time</label>
-        <select required onChange={(e) => setSelectedTime(e.target.value)}>
-          <option value=''>-Select a Time-</option>
-          {/* {selectedMovie.map((showtimes) => (
-              <option value={showtimes}>{showtimes}</option>
-            ))} */}
-          <option>10:30am</option>
-          <option>11:30am</option>
-          <option>4pm</option>
-          <option>8pm</option>
-          ))
-        </select>
-        <br />
-        <label htmlFor='seats'>No. of Seats:</label>
-        <input
-          required
-          type='number'
-          placeholder='Enter no. of seats...'
-          id='seats'
-          onChange={(e) => setSelectedSeat(e.target.value)}
-        />
-        <br />
-        <p>Please select your ticket type:</p>
-        <input
-          required
-          type='radio'
-          id='adult'
-          name='ticketType'
-          onChange={(e) => setTicketType(e.target.value)}
-        />
-        <label htmlFor='adult'>Adult</label>
-        <br />
-        <input
-          required
-          type='radio'
-          id='child'
-          name='ticketType'
-          onChange={(e) => setTicketType(e.target.value)}
-        />
-        <label htmlFor='child'>Child</label>
-        <br />
-        <input
-          required
-          type='radio'
-          id='concession'
-          name='ticketType'
-          onChange={(e) => setTicketType(e.target.value)}
-        />
-        <label htmlFor='concession'>Concession</label>
-        <br />
-        <label htmlFor='name'>Name:</label>
-        <input
-          required
-          type='text'
-          placeholder='Enter name...'
-          id='name'
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <button type='submit'>
-          {isLoading && <i className='fas fa-spinner fa-pulse' />}
-          {!isLoading && 'Book Tickets!'}
-        </button>
-      </form>
+    <div className='bookings'>
+      <div className="Form">
+        <h1 className='FormHeader'> Ticket Booking </h1>
+
+        {!isConfirmed ? // Unload the form if booking has been confirmed already
+          
+          <div>
+            <form className='bookingForm' onSubmit={(e) => Booking(e)}>
+              <label htmlFor='name'>Movie</label>
+              <select required onChange={(e) => setSelectedMovieId(e.target.value)} value={selectedMovie && selectedMovie._id}>
+                <option value=''>-Select a Movie-</option>
+                {availableMovies.map(movie => (
+                  <option key={movie._id} value={movie._id}>{movie.title}</option> // Display all available movies as options
+                ))}
+              </select>
+
+              {selectedMovie && // Only load this part when a movie is selected
+                
+                <div className='bookingFormPartTwo'>
+              
+                  <label htmlFor='movieTitle'>Date</label>
+                  <input type='date' required onChange={(e) => setSelectedDate(e.target.value)} value={selectedDate} />
+
+                  <label htmlFor='movieTitle'>Time</label>
+                  <select required onChange={(e) => setSelectedTime(e.target.value)} value={selectedTime}>
+                    <option value=''>-Select a Time-</option>
+                    {selectedMovie.showtimes && selectedMovie.showtimes.map((showtimes, i) => (
+                        <option key={i} value={showtimes}>{showtimes}</option> // Map all showtimes for movie in db
+                      ))}
+                  </select>
+                
+                  <label htmlFor='seats'>No. of Seats:</label>
+                  <input
+                    required
+                    type='number'
+                    placeholder='Enter no. of seats...'
+                    id='seats'
+                    onChange={(e) => setNumberOfSeats(e.target.value)}
+                    value={numberOfSeats}
+                  />
+                  
+                  <p>Please select your ticket type:</p>
+                  
+                  <div className="ticketType">
+
+                    <label htmlFor='adult'>Adult</label>
+                    <input
+                      required
+                      type='radio'
+                      id='adult'
+                      name='ticketType'
+                      onChange={(e) => setTicketType(e.target.value)}
+                    />
+
+                    <label htmlFor='child'>Child</label>
+                    <input
+                      required
+                      type='radio'
+                      id='child'
+                      name='ticketType'
+                      onChange={(e) => setTicketType(e.target.value)}
+                    />
+
+                    <label htmlFor='concession'>Concession</label>
+                    <input
+                      required
+                      type='radio'
+                      id='concession'
+                      name='ticketType'
+                      onChange={(e) => setTicketType(e.target.value)}
+                    />
+                        
+                  </div>
+
+                  <label htmlFor='name'>Your Name:</label>
+                  <input
+                    required
+                    type='text'
+                    placeholder='Enter name...'
+                    id='name'
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  
+                  {!isLoading ? <button type='submit'>Book Tickets!</button>
+                    : <button disabled>Booking...</button>}
+                
+                </div>
+              
+              }
+            </form>
+
+          </div>
+        
+          :
+          <div>
+            <h2>Your booking has been confirmed!</h2>
+            <Link to='/payForTickets'><p>Click here to pay for your tickets</p></Link>
+          </div>
+        
+        }
+
+      </div>
+
+      
     </div>
   );
 };

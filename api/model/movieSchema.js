@@ -23,7 +23,7 @@ const moviesSchema = mongoose.Schema({
   },
   showtimes: {
     type: Array,
-    required: false,
+    required: true,
     min: 1,
   },
   description: {

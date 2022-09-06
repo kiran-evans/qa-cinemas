@@ -7,6 +7,13 @@ const getBookings = asyncHandler(async (req, res) => {
   res.status(200).json(schema);
 });
 
+const getByMovieAndName = asyncHandler(async (req, res) => {
+  const {movie, name} = req.params;
+  
+  const result = await bookingSchema.find({'title': movie, 'name': name});
+  res.status(200).json(result);
+});
+
 const getBookingsByID = asyncHandler(async (req, res) => {
   const schema = await bookingSchema.findById(req.params.id);
   res.status(200).json(schema);
@@ -55,6 +62,7 @@ const deleteBooking = asyncHandler(async (req, res) => {
 
 module.exports = {
   getBookings,
+  getByMovieAndName,
   getBookingsByID,
   setBooking,
   updateBooking,

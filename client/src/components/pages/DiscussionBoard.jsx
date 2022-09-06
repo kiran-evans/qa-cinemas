@@ -92,7 +92,7 @@ const DiscussionBoard = () => {
                     <label htmlFor="discussionDropDown">What movie do you want to discuss? </label>
                     <select id="discussionDropDown" onChange={(e) => setSelectedMovie(e.target.value)}>
                         <option value=''>-Select a Movie to Discuss-</option>
-                        {availableMovies.map(movie => <option key={movie._id} value={movie}>{movie.title}</option>)}
+                        {availableMovies.map(movie => <option key={movie._id} value={movie.title}>{movie.title}</option>)}
                     </select>
                     <DiscussionForm submitHandler={submitHandler} postDiscussion={postDiscussion} submittedState={submittedState}/>
                 </div>

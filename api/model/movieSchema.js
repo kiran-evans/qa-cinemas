@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const moviesSchema = mongoose.Schema({
+const movieSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -46,4 +46,4 @@ const moviesSchema = mongoose.Schema({
     min: 4
   }
 });
-module.exports = mongoose.model('movie', moviesSchema);
+module.exports = mongoose.model('movie', movieSchema);

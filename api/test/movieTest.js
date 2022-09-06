@@ -45,12 +45,11 @@ describe('CRUD Tests', () => {
             ratings: 0,
         };
 
-        chai.request(server).post('/movies').send(newMovie)
+        chai.request(server).post('/api/movies').send(newMovie)
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res.status).to.equal(201);
-                expect(res.body).to.include(newMovie);
-                expect(res.body._id).to.not.be.null;
+                expect(res.body).to.deep.include(newMovie);
 
                 return done();
             });
@@ -58,7 +57,7 @@ describe('CRUD Tests', () => {
 
     // Read
     it('Should get all movies', (done) => {
-        chai.request(server).get('/movies')
+        chai.request(server).get('/api/movies')
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res.status).to.equal(200);
@@ -68,11 +67,11 @@ describe('CRUD Tests', () => {
     });
 
     it('Should get movie', (done) => {
-        chai.request(server).get(`/movies/${testMovie._id}`)
+        chai.request(server).get(`/api/movies/${testMovie._id}`)
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res.status).to.equal(200);
-                expect(res.body).to.include(testMovie);
+                expect(res.body).to.deep.include(testMovie);
 
                 return done();
             });
@@ -80,11 +79,11 @@ describe('CRUD Tests', () => {
 
     // Update 
     it('Should update movie', (done) => {
-        chai.request(server).patch(`/movies/${testMovie._id}`).query({ name: 'Jim' })
+        chai.request(server).put(`/api/movies/${testMovie._id}`).query({ name: 'Jim' })
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res.status).to.equal(200);
-                expect(res.body).to.include(testMovie);
+                expect(res.body).to.deep.include(testMovie);
 
                 return done();
             });
@@ -92,7 +91,7 @@ describe('CRUD Tests', () => {
 
     // Delete
     it('Should delete movie', (done) => {
-        chai.request(server).delete(`/movies/${testMovie._id}`)
+        chai.request(server).delete(`/api/movies/${testMovie._id}`)
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res.status).to.equal(204);

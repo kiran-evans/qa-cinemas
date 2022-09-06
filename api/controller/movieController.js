@@ -12,7 +12,7 @@ const getMovieByID = asyncHandler(async (req, res) => {
   res.status(200).json(schema);
 });
 
-const setMovie = asyncHandler(async (req, res) => {
+const createMovie = asyncHandler(async (req, res) => {
   const schema = await movieSchema.create({
     title: req.body.title,
     classification: req.body.classification,
@@ -24,7 +24,7 @@ const setMovie = asyncHandler(async (req, res) => {
     ratings: req.body.ratings,
     poster: req.body.poster,
   });
-  res.status(200).json(schema);
+  res.status(201).json(schema);
 });
 
 const updateMovie = asyncHandler(async (req, res) => {
@@ -52,13 +52,13 @@ const deleteMovie = asyncHandler(async (req, res) => {
 
   await schema.remove();
 
-  res.status(200).json({ id: req.params.id });
+  res.status(204).json({ id: req.params.id });
 });
 
 module.exports = {
   getMovie,
   getMovieByID,
-  setMovie,
+  createMovie,
   updateMovie,
   deleteMovie,
 };

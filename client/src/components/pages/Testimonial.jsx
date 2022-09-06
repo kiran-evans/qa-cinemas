@@ -8,16 +8,16 @@ const OuterDiv= styled.div`
     border: 2px solid green;
     border-radius: 20px;
     margin: 10px;
-    padding: 5px;
+    padding: 25px;
     width: 280px;
     height: 280px;
 `
 const ImageDiv = styled.div`
 `
 const Image = styled.img`
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    height: 125px;
+    width: 125px;
+    border-radius: 75%;
 `
 const InnerDiv = styled.div`
     display: flex;
@@ -31,7 +31,7 @@ const Name = styled.h3`
 const Text = styled.p`
     display: flex;
     flex-wrap: wrap;
-    font-size: 12px;
+    font-size: 15px;
 `
 
 const LinkTo = styled.a`

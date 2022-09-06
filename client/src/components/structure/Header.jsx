@@ -19,6 +19,7 @@ const Header = (props) => {
                     <Link to='/contact'>Contact Us</Link>
                     <Link to='/openingTimes'>Opening Times</Link>
                     <Link to='/travelPage'>Getting There</Link>
+                    <Link to='/aboutUs'>About Us</Link>
                 </div>
                 <SearchBar setSearchResult={props.setSearchResult} />
             </div>

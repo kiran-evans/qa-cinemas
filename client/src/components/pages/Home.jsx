@@ -5,8 +5,10 @@ const Home = () => {
         <div className="homeTitle">
             <h1>Home</h1>
             <img className="logo" src="/logos/logo.png" alt="QA Cinemas logo" />
-            <h4>"QA Cinemas deliver on more of their moviegoing experience promises than my whole party combined."</h4>
-            <h5>- Boris Johnson, 2022 Prime Minister</h5>
+            <h4>"QA Cinemas deliver absolute top-notch entertainment. If only I could work for them..."</h4>
+        </div>
+        <div className="quoteAuthor">
+            <h5>- Jorson Harridan, UK Cinema Magazine</h5>
         </div>
         <div id="homeIntro">
             <div id="homeIntroRow">

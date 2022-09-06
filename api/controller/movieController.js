@@ -18,7 +18,6 @@ const setMovie = asyncHandler(async (req, res) => {
     classification: req.body.classification,
     actors: req.body.actors,
     director: req.body.director,
-    showdates: req.body.showdates,
     showtimes: req.body.showtimes,
     description: req.body.description,
     dateReleased: req.body.dateReleased,

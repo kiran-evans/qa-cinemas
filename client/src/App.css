@@ -93,7 +93,7 @@ li {
 
 label {
   color: white;
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin: 1em 0;
 }
 
@@ -103,19 +103,21 @@ input, textarea {
   color: white;
   border-radius: 1.5em;
   padding: 0.6em 1.2em;
+  font-family: inherit;
   font-size: 1.1em;
 }
 
 *:focus {
-  outline: 0.1em solid skyblue;
+  outline: none;
 }
 
 *::placeholder {
   color: rgba(255, 255, 255, .2);
 }
 
-input:focus, textarea:focus {
+input[type='text']:focus, input[type='date']:focus, input[type='number']:focus, textarea:focus {
   background-color: rgba(255, 255, 255, .2);
+  outline: 0.1em solid skyblue;
 }
 
 select {
@@ -126,6 +128,10 @@ select {
   border: 0.1em solid white;
   border-radius: 1.5em;
   padding: 0.3em 1em;
+}
+
+select:focus {
+  outline: 0.1em solid skyblue;
 }
 
 option {
@@ -561,7 +567,7 @@ img.travelinfo {
   padding: 1.2em 1em;
   border: 0.1em solid white;
   border-radius: 1.5em;
-  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+  font-family: inherit;
 }
 
 #discussionCreator form button {
@@ -657,4 +663,49 @@ img.travelinfo {
 .focus {
   color: springgreen;
   font-weight: bold;
+}
+
+/* Booking Form */
+
+.bookings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingForm input {
+  align-self: flex-start;
+}
+
+.bookingFormPartTwo {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingForm input[type='radio'] {
+  align-self: auto;
+}
+
+.ticketType {
+  display: flex;
+}
+
+.ticketType input {
+  margin-right: 1em;
+}
+
+.bookingForm button {
+  align-self: flex-start;
+  margin-top: 1em;
+}
+
+.bookingForm p {
+  margin-top: 2em;
+  margin-bottom: 0;
 }

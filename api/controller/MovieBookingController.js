@@ -1,4 +1,4 @@
-const asyncHandler = require('express-async-handler'); //have functions in controller
+const asyncHandler = require('express-async-handler');
 
 const bookingSchema = require('../model/bookingSchema');
 
@@ -20,6 +20,7 @@ const setBooking = asyncHandler(async (req, res) => {
     seats: req.body.seats,
     ticketType: req.body.ticketType,
     name: req.body.name,
+    paid: req.body.paid,
   });
   res.status(200).json(schema);
 });

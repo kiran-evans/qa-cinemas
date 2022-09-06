@@ -21,11 +21,6 @@ const moviesSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  showdates: {
-    type: Array,
-    required: true,
-    min: 1
-  },
   showtimes: {
     type: Array,
     required: true,

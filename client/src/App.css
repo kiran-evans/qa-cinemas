@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Main */
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  color: white;
+  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.appContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #002;
+}
+
+.appMain {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  align-items: center;
+}
+
+.appBody {
+  flex: 1;
+  width: 100%;
+  padding-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Defaults */
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  font-weight: 500;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+h4 {
+  color: springgreen;
+  font-size: 1.3em;
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+h5 {
+  color: springgreen;
+  font-size: 1.2em;
+  margin: 0.4em 0;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: skyblue;
+}
+
+li {
+  font-size: 1.2em;
+}
+
+label {
+  color: white;
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+
+input, textarea {
+  background: none;
+  border: 0.1em solid white;
+  color: white;
+  border-radius: 1.5em;
+  padding: 0.6em 1.2em;
+  font-family: inherit;
+  font-size: 1.1em;
+}
+
+*:focus {
+  outline: none;
+}
+
+*::placeholder {
+  color: rgba(255, 255, 255, .2);
+}
+
+input[type='text']:focus, input[type='date']:focus, input[type='number']:focus, textarea:focus {
+  background-color: rgba(255, 255, 255, .2);
+  outline: 0.1em solid skyblue;
+}
+
+select {
+  align-self: flex-start;
+  font-size: 1.2em;
+  color: white;
+  background-color: #002;
+  border: 0.1em solid white;
+  border-radius: 1.5em;
+  padding: 0.3em 1em;
+}
+
+select:focus {
+  outline: 0.1em solid skyblue;
+}
+
+option {
+  padding: 5em 0;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  padding: 0.5em 0.7em;
+  background-color: white;
+  border: 0.1em solid white;
+  border-radius: 0.5em;
+  color: #002;
+}
+
+button:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+table {
+  width: 70em;
+  height: 50em;
+  border-collapse: collapse;
+}
+  
+th {
+  border: 0.1em solid white;
+  border-bottom-width: 0.2em;
+  font-size: 2em;
+}
+  
+td {
+  text-align: center;
+  border: 0.1em solid white;
+  font-size: 2em;
+}
+
+/* Header and Footer */
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1em;
+  background-color: #225;
+
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 15px -2px rgba(0,0,0,0); 
+  box-shadow: 0px 10px 13px -7px #000000, 0px 0px 15px -2px rgba(0,0,0,0);
+  z-index: 1;
+}
+
+.logo img {
+  width: 20em;
+  padding-top: 1em;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #001;
+  padding-bottom: 1.2em;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navLinks {
+  flex: 4;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.navLinks>* {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6em;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  padding: 0.2em 0;
+  padding-left: 0.5em;
+  padding-right: 0.4em;
+  border-left: 0.1em solid white;
+}
+
+.navLinks>*:hover {
+  cursor: pointer;
+}
+
+.navLinks>:first-child {
+  border-left-color: rgba(0, 0, 0, 0);
+}
+
+.subMenu {
+  position: relative;
+}
+
+.subMenuContent {
+  display: none;
+  position: absolute;
+}
+
+.subMenu:hover .subMenuContent {
+  top: 1.6em;
+  display: flex;
+  flex-direction: column;
+  background-color: #225;
+}
+
+.subMenu:hover .subMenuContent>* {
+  padding: 0.8em 0.8em;
+  border-top: 0.1em solid rgba(0, 0, 0, 0.2);
+}
+
+.subMenu:hover .subMenuContent>:first-child {
+  border: none;
+}
+
+/* Searchbar */
+
+.searchBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2em;
+}
+
+.searchForm {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.searchButton {
+  margin-left: 1em;
+}
+
+/* Home */
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img.logo {
+  width: 50em;
+}
+
+/* Movie Galleries */
+
+.moviesListContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.moviesList {
+  flex: 1 1 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.movieCard {
+  flex: 0 0 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #002;
+  border: 0.1em solid skyblue;
+  border-radius: 1em;
+  padding: 2em 1em;
+  margin: 1em 1em;
+  margin-bottom: 10%;
+}
+
+.movieCard:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, .2);
+  border-color: white;
+}
+
+.moviePoster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1% 0;
+}
+
+.moviePoster img {
+  border: 0.1em solid white;
+  height: 22.5em;
+  width: 15em;
+  object-fit: cover;
+}
+
+.moviePoster p {
+  margin: 0;
+  padding: 1% 1%;
+}
+
+.movieCard h1 {
+  font-size: 160%;
+  margin: 8% 0;
+}
+
+.movieCard h2 {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin: 0;
+  color: springgreen;
+}
+
+.movieClassification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.movieClassification img {
+  width: 3em;
+}
+
+.movieCard p {
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.movieCard h3 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.movieCard .showTimesList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.movieCard .showTime {
+  font-size: 1.1em;
+  margin: 0.2em;
+}
+
+/* Movie Individual Pages */
+
+.moviePage {
+  display: flex;
+  align-items: flex-start;
+  padding: 5em;
+}
+
+.movieInfo {
+  display: flex;
+}
+
+.movieInfo>* {
+  margin: 0 1em;
+}
+
+.moviePageText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moviePageText h1 {
+  font-size: 2.2em;
+  margin-top: 0.3em;
+}
+
+.moviePageText h2 {
+  color: springgreen;
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.moviePageText p {
+  max-width: 30em;
+  font-size: 1.3em;
+}
+
+.moviePagePoster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moviePagePoster img {
+  border: 0.1em solid white;
+  height: 30em;
+  width: 20em;
+  object-fit: cover;
+}
+
+.movieShowtimes {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5em;
+}
+
+.showTimesList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showTime {
+  border: 0.1em solid white;
+  padding: 0.5em 1.3em;
+  margin: 1em 1em;
+  font-size: 1.4em;
+}
+
+.showTimesList p {
+  margin: 0 0.5em;
+}
+
+/* Classifications page */
+
+.classifications img {
+  width: 2.5em;
+  margin: 0 1em;
+}
+
+/* Contact Form */
+
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+
+.FormHeader {
+  padding-bottom: 0.5em;
+  border-bottom: 0.1em solid skyblue;
+}
+
+.formSubmitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6em;
+  margin-top: 1em;
+  font-weight: 600;
+}
+
+.FormInputBody {
+  height: 10rem;
+  text-align: left;
+  word-wrap: break-word;
+  grid-area: auto;
+  vertical-align: text-top;
+  white-space: nowrap;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+/* Travel Page */
+
+img.qabuilding {
+  width: 40em;
+}
+
+img.directions {
+  width: 30em;
+}
+
+img.travelinfo {
+  width: 50em;
+}
+
+/* Discussion Board */
+
+.discussionBoard {
+  flex: 1;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussionArea {
+  display: flex;
+}
+
+.discussionArea>* {
+  margin: 0 1em;
+}
+
+.discussionForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#discussionCreator form {
+  display: flex;
+  flex-direction: column;
+}
+
+.textArea {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  min-width: 30em;
+  max-width: 30em;
+  min-height: 12em;
+  padding: 1.2em 1em;
+  border: 0.1em solid white;
+  border-radius: 1.5em;
+  font-family: inherit;
+}
+
+#discussionCreator form button {
+  width: 5em;
+  margin-top: 1em;
+}
+
+.existingPosts {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.existingPosts h1 {
+  display: inline-block;
+  border-bottom: 0.1em solid white;
+  font-size: 1.4em;
+}
+
+.existingPosts h2 {
+  text-align: left;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.existingPosts h3 {
+  text-align: left;
+  font-size: 1.3em;
+  font-weight: 300;
+  margin: 0;
+}
+
+.existingPosts h4 {
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.post {
+  padding: 1em 2em;
+  border: 0.1em solid white;
+}
+
+/* Home */
+
+#homeTitle {
+  text-align: center;
+}
+
+#homeIntro {
+  display: table;
+  width: 1500px;
+}
+#homeIntroRow {
+  display: table-row;
+}
+
+#introImage {
+  display: table-cell;
+  width: 500px;
+}
+#introText{
+  display: table-cell;
+  width: 800px;
+  text-align: left;
+  vertical-align: top;
+  margin: 10px;
+  color: white;
+}
+
+#homeWrapper {
+  display: table;
+  width: 1500px;
+}
+#homeWrapperRow {
+  display: table-row;
+}
+#feature1 {
+  display: table-cell;
+  width: 500px;
+  text-align: center;
+}
+#feature2 {
+  display: table-cell;
+  width: 500px;
+  text-align: center;
+}
+#feature3 {
+  display: table-cell;
+  width: 500px;
+  text-align: center;
+
+}
+.focus {
+  color: springgreen;
+  font-weight: bold;
+}
+
+/* Booking Form */
+
+.bookings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingForm input {
+  align-self: flex-start;
+}
+
+.bookingFormPartTwo {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingForm input[type='radio'] {
+  align-self: auto;
+}
+
+.ticketType {
+  display: flex;
+}
+
+.ticketType input {
+  margin-right: 1em;
+}
+
+.bookingForm button {
+  align-self: flex-start;
+  margin-top: 1em;
+}
+
+.bookingForm p {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+/* About Page */
+
+.aboutUs {
+  width: 60%;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+}

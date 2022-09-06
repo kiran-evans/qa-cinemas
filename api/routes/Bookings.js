@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {
   getBookings,
+  getByMovieAndName,
   getBookingsByID,
   setBooking,
   updateBooking,
@@ -14,5 +15,6 @@ router
   .delete(deleteBooking)
   .put(updateBooking)
   .get(getBookingsByID);
+router.route('/:movie/:name').get(getByMovieAndName);
 
 module.exports = router;

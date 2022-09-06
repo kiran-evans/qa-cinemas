@@ -11,9 +11,9 @@ const Footer = () => {
             </div>
             <div className="nav">
                 <div className="navLinks">
-                    <Link to='/meetTheTeam'>Meet the Team</Link>
-                    <Link to='/scrum'>About Scrum</Link>
-                    <a href="https://scrum.org" rel="noreferrer noopener" target="_blank" title="Visit Scrum.org">Scrum.org</a>
+                    <Link to='/'>Home</Link>
+                    <Link to='/aboutUs'>About Us</Link>
+                    <Link to='/contact'>Contact Us</Link>
                 </div>
             </div>
         </div>

@@ -90,8 +90,8 @@ const BookingPage = () => {
                     type='number'
                     placeholder='Enter no. of seats...'
                     id='seats'
-                    onChange={(e) => setNumberOfSeats(e.target.value)}
                     value={numberOfSeats}
+                    onChange={(e) => setNumberOfSeats(e.target.value)}
                   />
                   
                   <p>Please select your ticket type:</p>
@@ -104,6 +104,7 @@ const BookingPage = () => {
                       type='radio'
                       id='adult'
                       name='ticketType'
+                      value='adult'
                       onChange={(e) => setTicketType(e.target.value)}
                     />
 
@@ -113,6 +114,7 @@ const BookingPage = () => {
                       type='radio'
                       id='child'
                       name='ticketType'
+                      value='child'
                       onChange={(e) => setTicketType(e.target.value)}
                     />
 
@@ -122,6 +124,7 @@ const BookingPage = () => {
                       type='radio'
                       id='concession'
                       name='ticketType'
+                      value='concession'
                       onChange={(e) => setTicketType(e.target.value)}
                     />
                         
@@ -133,6 +136,7 @@ const BookingPage = () => {
                     type='text'
                     placeholder='Enter name...'
                     id='name'
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                   

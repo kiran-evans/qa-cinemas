@@ -216,32 +216,57 @@ td {
 }
 
 .navLinks {
-  flex: 8;
+  flex: 4;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .navLinks>* {
-  font-size: 1.4em;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6em;
+  font-weight: 500;
   color: white;
   text-decoration: none;
+  padding: 0.2em 0;
   padding-left: 0.5em;
   padding-right: 0.4em;
   border-left: 0.1em solid white;
 }
 
 .navLinks>*:hover {
-  text-decoration: underline;
-  text-decoration-color: skyblue;
-}
-
-.navLinks>*:active {
-  text-decoration-color: white;
+  cursor: pointer;
 }
 
 .navLinks>:first-child {
   border-left-color: rgba(0, 0, 0, 0);
+}
+
+.subMenu {
+  position: relative;
+}
+
+.subMenuContent {
+  display: none;
+  position: absolute;
+}
+
+.subMenu:hover .subMenuContent {
+  top: 1.6em;
+  display: flex;
+  flex-direction: column;
+  background-color: #225;
+}
+
+.subMenu:hover .subMenuContent>* {
+  padding: 0.8em 0.8em;
+  border-top: 0.1em solid rgba(0, 0, 0, 0.2);
+}
+
+.subMenu:hover .subMenuContent>:first-child {
+  border: none;
 }
 
 /* Searchbar */
@@ -255,7 +280,7 @@ td {
 }
 
 .searchForm {
-  flex: 1;
+  flex: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -708,4 +733,15 @@ img.travelinfo {
 .bookingForm p {
   margin-top: 2em;
   margin-bottom: 0;
+}
+
+/* About Page */
+
+.aboutUs {
+  width: 60%;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
 }

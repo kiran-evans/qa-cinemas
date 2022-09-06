@@ -616,6 +616,10 @@ img.travelinfo {
   text-align: center;
 }
 
+#quoteAuthor {
+  text-align: center;
+}
+
 #homeIntro {
   display: table;
   width: 1500px;

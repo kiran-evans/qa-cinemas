@@ -1,6 +1,7 @@
 package seleniumtesting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,9 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class AboutTest {
-
-	private RemoteWebDriver driver;
+public class GettingThereTest {
+private RemoteWebDriver driver;
 
 	
 	@BeforeEach
@@ -22,20 +22,19 @@ public class AboutTest {
 	}
 
 	@Test
-	void abouttest() {
+	void gettingtheretest() {
 		this.driver.get("http://localhost:3000/"); //goes to the web page
-		// goes to the about tab
+		
+		//Goes to the getting there tab
 		this.driver.findElement(By.cssSelector("#root > div > div > div.header > div.nav > div.navLinks > div:nth-child(3) > div.subMenuHeader")).click();
 		//goes to the getting there page
-		this.driver.findElement(By.cssSelector("#root > div > div > div.header > div.nav > div.navLinks > div:nth-child(3) > div.subMenuContent > a:nth-child(6)")).click();
-		
-		//Goes to the scrum.org link
-		this.driver.findElement(By.cssSelector("#root > div > div > div.appMain > div.appBody > div > a > button")).click();
+		this.driver.findElement(By.cssSelector("#root > div > div > div.header > div.nav > div.navLinks > div:nth-child(3) > div.subMenuContent > a:nth-child(2)")).click();
 		
 		//result
-		WebElement result = driver.findElement(By.cssSelector("#block-scrumorg-v2-content > section.pt-4.pt-lg-5.pb-5.homepage-hero > div > div > div:nth-child(1) > h1"));
+		WebElement result = driver.findElement(By.cssSelector("#root > div > div > div.appMain > div.appBody > div > div.sc-bczRLJ.goEvZo > h3"));
+		
 		//compares text in results to expected value
-		assertEquals("Welcome to the Home of Scrum!™", result.getText());
+		assertEquals("QA Cinema", result.getText());
 	}
 
 	@AfterEach
@@ -44,4 +43,5 @@ public class AboutTest {
 	}
 
 	}
-	
+
+

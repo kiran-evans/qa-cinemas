@@ -1,4 +1,4 @@
-package seleniumtesting;
+package com.qa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.AfterEach;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AboutTest {
@@ -17,7 +17,7 @@ public class AboutTest {
 	@BeforeEach
 	 void setup() {
 		
-		this.driver = new ChromeDriver();
+		this.driver = new EdgeDriver();
 		driver.manage().window().maximize();
 	}
 
@@ -35,7 +35,7 @@ public class AboutTest {
 		//result
 		WebElement result = driver.findElement(By.cssSelector("#block-scrumorg-v2-content > section.pt-4.pt-lg-5.pb-5.homepage-hero > div > div > div:nth-child(1) > h1"));
 		//compares text in results to expected value
-		assertEquals("Welcome to the Home of Scrum!™", result.getText());
+		assertEquals("Welcome to the Home of Scrum!", result.getText());
 	}
 
 	@AfterEach

@@ -1,4 +1,4 @@
-package pom;
+package com.qa;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,13 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ClassificationsPageTesting {
+public class ClassificationsPageTest {
 
     private RemoteWebDriver driver;
 
@@ -27,8 +24,6 @@ public class ClassificationsPageTesting {
     @Test
     void navToClassifications() {
         this.driver.get("http://localhost:3000");
-
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 
         WebElement dropDown = this.driver.findElement(By.cssSelector("#root > div > div > div.header > " +
                 "div.nav > div.navLinks > div:nth-child(3)"));

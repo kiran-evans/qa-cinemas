@@ -641,6 +641,10 @@ img.travelinfo {
   text-align: center;
 }
 
+#homeQuoteAuthor {
+  text-align: center;
+}
+
 #homeIntro {
   display: table;
   width: 1500px;
@@ -649,11 +653,11 @@ img.travelinfo {
   display: table-row;
 }
 
-#introImage {
+#homeIntroImage {
   display: table-cell;
   width: 500px;
 }
-#introText{
+#homeIntroText{
   display: table-cell;
   width: 800px;
   text-align: left;
@@ -669,17 +673,17 @@ img.travelinfo {
 #homeWrapperRow {
   display: table-row;
 }
-#feature1 {
+#homeFeature1 {
   display: table-cell;
   width: 500px;
   text-align: center;
 }
-#feature2 {
+#homeFeature2 {
   display: table-cell;
   width: 500px;
   text-align: center;
 }
-#feature3 {
+#homeFeature3 {
   display: table-cell;
   width: 500px;
   text-align: center;
@@ -733,6 +737,106 @@ img.travelinfo {
 .bookingForm p {
   margin-top: 2em;
   margin-bottom: 0;
+}
+
+/* PlacesToGo */
+
+.ptgTitle {
+  text-align: center;
+  font-weight: bold;
+}
+
+.ptgSubtitle {
+  text-align: center;
+}
+
+.ptgWrapper {
+  display: table;
+  width: 1500px;
+}
+.ptgWrapperRow {
+  display: table-row;
+}
+
+.ptgFeatureImage {
+  display: table-cell;
+  width: 600px;
+}
+
+.ptgFeatureDetails {
+  display: table-cell;
+  width: 800px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ptgFeatureTitle {
+  color: springgreen;
+  font-size: large;
+  text-align: justify;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+/* Screens */
+
+.screensTitle {
+  text-align: center;
+}
+
+.screenSubtitle {
+  text-align: center;
+}
+
+.screensContainer {
+  text-align: center;
+}
+
+.screensImageWrapper {
+  display: table;
+  width: 1500px;
+}
+.screensImageRow {
+  display: table-row;
+}
+
+.screensImage1 {
+  display: table-cell;
+  width: 700px;
+}
+
+.screensImage2 {
+  display: table-cell;
+  width: 700px;
+}
+
+.screensDetailsWrapper {
+  display: table;
+  width: 1500px;
+  text-align: center;
+  ;
+}
+
+.screensDetailsRow{
+  display: table-row;
+}
+
+.screensDetails1 {
+  float: left;
+  display: table-cell;
+  width: 700px;
+  text-align: center;
+  vertical-align: top;
+  margin: 10px;
+  color: white;
+}
+
+.screensDetails2 {
+  display: table-cell;
+  width: 700px;
+  text-align: center;
+  vertical-align: top;
+  margin: 10px;
 }
 
 /* About Page */

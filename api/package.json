@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test --reporter=nyan --exit",
+    "test": "mocha --reporter=nyan --exit",
     "coverage": "nyc npm test",
     "start": "nodemon server",
     "dev": "nodemon server"

@@ -46,6 +46,8 @@ function App() {
                 <Route path='/placesToGo' element={<PlacesToGo />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/openingTimes' element={<OpeningTimes />} />
+                <Route path='/travelpage' element={<Home />} />
+                <Route path='/scrum' element={<ScrumMethods />} />
                 <Route path='/travelpage' element={<Travelpage />} />
                 <Route path='/aboutus' element={<AboutUs />} />
                 <Route

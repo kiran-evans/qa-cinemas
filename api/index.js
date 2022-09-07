@@ -1,9 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-dotenv.config({ path: './config/config.env' }); 
+
+// ----------------------
 //THIS LINE DICTATES WHAT DB YOU USE!
 // FOR TESTING -> path: './config/testconfig.env'  // FOR DEV DB -> path: './config/config.env'
+const configPath = './config/config.env';
+dotenv.config({ path: configPath }); 
+// ----------------------
+
 const port = process.env.PORT;
 const movieRoutes = require('./routes/movieRoutes');
 const formRoutes = require('./routes/contactFormRoutes');
@@ -21,6 +26,8 @@ app.use('/api/movies', movieRoutes);
 app.use('/api/contact', formRoutes);
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/booking', bookingRoutes);
-const server = app.listen(port, () => console.log(`Server started on port ${port}`));
+const server = app.listen(port, () => console.info(`Server started on port ${port}`));
+
+(configPath === './config/config.env') && console.warn("-- WARNING: Running development environment. NOT SAFE FOR TESTING. --");
 
 module.exports = server;

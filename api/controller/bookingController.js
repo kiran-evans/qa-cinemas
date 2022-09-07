@@ -25,7 +25,6 @@ const setBooking = asyncHandler(async (req, res) => {
     date: req.body.date,
     time: req.body.time,
     seats: req.body.seats,
-    ticketType: req.body.ticketType,
     name: req.body.name,
     paid: req.body.paid,
   });

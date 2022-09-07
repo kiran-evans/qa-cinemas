@@ -7,7 +7,7 @@ dotenv.config({ path: './config/config.env' });
 const port = process.env.PORT;
 const movieRoutes = require('./routes/movieRoutes');
 const formRoutes = require('./routes/contactFormRoutes');
-const booking = require('./routes/Bookings');
+const bookingRoutes = require('./routes/bookingRoutes');
 const discussionRoutes = require('./controller/discussionController');
 const connectDB = require('./config/db');
 
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/movies', movieRoutes);
 app.use('/api/contact', formRoutes);
 app.use('/api/discussions', discussionRoutes);
-app.use('/api/booking', booking);
+app.use('/api/booking', bookingRoutes);
 const server = app.listen(port, () => console.log(`Server started on port ${port}`));
 
 module.exports = server;

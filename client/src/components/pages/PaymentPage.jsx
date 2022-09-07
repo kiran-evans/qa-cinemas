@@ -100,7 +100,7 @@ const PaymentPage = () => {
                 {(!userBooking) ? null : 
                     (userBooking.paid) ? <h2>This booking has been paid for!</h2> :
                     <>
-                    <h4>Greetings {userBooking.name}! Please enter your payment details below.</h4>
+                    <h3>Greetings, {userBooking.name}! Please enter your payment details below.</h3>
                     <form onSubmit={(event) => submitHandler(event)}>
                     <input type="text" id="holderNameInput" required placeholder="Cardholder Name." value={holdersName} onChange={(e) => setHoldersName(e.target.value)}/>
                     <br /> <br />

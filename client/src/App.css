@@ -723,20 +723,20 @@ img.travelinfo {
 
 .ticketType {
   display: flex;
+  margin-top: 2em;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .ticketType input {
-  margin-right: 1em;
+  margin: 0 1em;
+  align-self: center;
+  width: 2em;
 }
 
 .bookingForm button {
   align-self: flex-start;
   margin-top: 1em;
-}
-
-.bookingForm p {
-  margin-top: 2em;
-  margin-bottom: 0;
 }
 
 /* PlacesToGo */

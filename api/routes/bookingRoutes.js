@@ -7,7 +7,7 @@ const {
   setBooking,
   updateBooking,
   deleteBooking,
-} = require('../controller/MovieBookingController');
+} = require('../controller/bookingController');
 
 router.route('/').get(getBookings).post(setBooking);
 router

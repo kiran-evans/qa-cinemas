@@ -21,6 +21,6 @@ app.use('/api/movies', movieRoutes);
 app.use('/api/contact', formRoutes);
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/booking', booking);
-app.listen(port, () => console.log(`Server started on port ${port}`));
+const server = app.listen(port, () => console.log(`Server started on port ${port}`));
 
-module.exports = app;
+module.exports = server;

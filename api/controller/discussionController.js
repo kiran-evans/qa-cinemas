@@ -10,6 +10,12 @@ router.get('/getAllRelated/:movie', (req, res, next) => {
         .catch((err) => next(err));
 });
 
+router.get('/getAll', (req, res, next) => {
+    Discussions.find()
+        .then((result) => res.status(200).json(result))
+        .catch((err) => next(err));
+});
+
 router.post('/postNewDiscussion', (req, res, next) => {
     if (!req.body || Object.keys(req.body).length < 5) return next({ status: 400, msg: 'Incomplete/No Body Provided' });
 

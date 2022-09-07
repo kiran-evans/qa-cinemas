@@ -17,11 +17,11 @@ describe('crud testing', () => {
         try {
             await bookingModel.deleteMany({});
             testBooking = await bookingModel.create({
-                title: "test movie",
-                date: "22/12/2022",
-                time: "18:00",
-                seats: ["A1", "A2", "A3"],
-                name: "William B Wilde",
+                title: 'test movie',
+                date: '22/12/2022',
+                time: '18:00',
+                seats: ['A1', 'A2', 'A3'],
+                name: 'William B Wilde',
                 paid: true,
             });
             testBooking = JSON.parse(JSON.stringify(testBooking));
@@ -33,11 +33,11 @@ describe('crud testing', () => {
     //creation
     it('should create booking submission', (done) => {
         const newBooking = {
-            title: "test movie 2 the testening",
-            date: "23/12/2022",
-            time: "19:00",
-            seats: ["B1", "B2", "B3"],
-            name: "John Movies",
+            title: 'test movie 2 the testening',
+            date: '23/12/2022',
+            time: '19:00',
+            seats: ['B1', 'B2', 'B3'],
+            name: 'John Movies',
             paid: true,
         };
 
@@ -75,7 +75,7 @@ describe('crud testing', () => {
 
     //update
     it('should update a booking', (done) => {
-        chai.request(server).put(`/api/booking/${testBooking._id}`).query({name: "Wallace Wallers"})
+        chai.request(server).put(`/api/booking/${testBooking._id}`).query({name: 'Wallace Wallers'})
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res.status).to.equal(200);

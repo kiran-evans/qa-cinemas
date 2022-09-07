@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-dotenv.config({ path: './config/testconfig.env' }); 
+dotenv.config({ path: './config/config.env' }); 
 //THIS LINE DICTATES WHAT DB YOU USE!
 // FOR TESTING -> path: './config/testconfig.env'  // FOR DEV DB -> path: './config/config.env'
 const port = process.env.PORT;

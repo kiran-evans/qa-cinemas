@@ -15,7 +15,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PaymentPageTesting {
+public class PaymentPageTests {
 
     private RemoteWebDriver driver;
 
@@ -56,7 +56,7 @@ public class PaymentPageTesting {
 
         WebElement result = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#root > div > div > div.appMain > div.appBody > " +
                 "div > div > div > h3")));
-        assertEquals("fred", result.getText());
+        assertEquals("Booking for fred", result.getText());
     }
 
     @Test

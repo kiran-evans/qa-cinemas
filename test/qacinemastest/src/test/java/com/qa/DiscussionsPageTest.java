@@ -1,4 +1,4 @@
-package pom;
+package com.qa;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +14,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DiscussionsBoardTesting {
+public class DiscussionsPageTest {
 
     private WebDriver driver;
 
@@ -28,8 +27,6 @@ public class DiscussionsBoardTesting {
     @Test
     void navToPageAndEnterInfo() {
         this.driver.get("http://localhost:3000");
-
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 
         WebElement discussionButton = this.driver.findElement(By.cssSelector("#root > div > div > div.header > " +
                 "div.nav > div.navLinks > a:nth-child(4)"));

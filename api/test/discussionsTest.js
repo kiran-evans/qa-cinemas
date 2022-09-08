@@ -115,6 +115,16 @@ describe('Discussions CRUD Testing', () => {
 
             done();
         });
-    })
+    });
+
+    it ('should get an error', (done) => {
+        emptyObject = {
+        };
+        chai.request(server).post('/api/discussions/postNewDiscussion').send(emptyObject).end((err, res) => {
+            expect(res.status).to.equal(400);
+
+            done();
+        })
+    });
 
 });

@@ -1,4 +1,4 @@
-package seleniumtesting;
+package com.qa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
@@ -18,7 +18,7 @@ private RemoteWebDriver driver;
 	@BeforeEach
 	 void setup() {
 		
-		this.driver = new ChromeDriver();
+		this.driver = new EdgeDriver();
 		driver.manage().window().maximize();
 	}
 

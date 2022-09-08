@@ -1,4 +1,4 @@
-package seleniumtesting;
+package com.qa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class GettingThereTest {
@@ -17,7 +17,7 @@ private RemoteWebDriver driver;
 	@BeforeEach
 	 void setup() {
 		
-		this.driver = new ChromeDriver();
+		this.driver = new EdgeDriver();
 		driver.manage().window().maximize();
 	}
 
@@ -31,7 +31,7 @@ private RemoteWebDriver driver;
 		this.driver.findElement(By.cssSelector("#root > div > div > div.header > div.nav > div.navLinks > div:nth-child(3) > div.subMenuContent > a:nth-child(2)")).click();
 		
 		//result
-		WebElement result = driver.findElement(By.cssSelector("#root > div > div > div.appMain > div.appBody > div > div.sc-bczRLJ.goEvZo > h3"));
+		WebElement result = driver.findElement(By.cssSelector("#root > div > div > div.appMain > div.appBody > div > div > h3"));
 		
 		//compares text in results to expected value
 		assertEquals("QA Cinema", result.getText());

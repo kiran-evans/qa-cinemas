@@ -1,4 +1,4 @@
-package pom;
+package com.qa;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,13 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ScreensTesting {
+public class ScreensPageTest {
 
     private RemoteWebDriver driver;
 
@@ -26,8 +23,6 @@ public class ScreensTesting {
     @Test
     void screensPageLoads() {
         this.driver.get("http://localhost:3000");
-
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
 
         WebElement dropDown = this.driver.findElement(By.cssSelector("#root > div > div > div.header > div.nav > " +
                 "div.navLinks > div:nth-child(3)"));

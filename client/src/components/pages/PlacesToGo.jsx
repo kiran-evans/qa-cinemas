@@ -11,8 +11,7 @@ const PlacesToGo = () => {
         <div className="ptgWrapper">
             <div className="ptgWrapperRow">
                 <div className="ptgFeatureImage">
-                    <img alt="Interior of Pizza Metro" src="/contentpages/pizzametro.jpg" 
-                    width={600} height={400} />
+                    <img alt="Interior of Pizza Metro" src="/contentpages/pizzametro.jpg" />
                 </div>
                 <div className="ptgFeatureDetails">
                     <div className="ptgFeatureTitle">
@@ -31,8 +30,7 @@ const PlacesToGo = () => {
         <div className="ptgWrapper">
             <div className="ptgWrapperRow">
                 <div className="ptgFeatureImage">
-                    <img alt="Interior of Dominus Chicken" src="/contentpages/dominuschicken.jpg" 
-                    width={600} height={400} />
+                    <img alt="Interior of Dominus Chicken" src="/contentpages/dominuschicken.jpg" />
                 </div>
                 <div className="ptgFeatureDetails">
                     <div className="ptgFeatureTitle">
@@ -51,8 +49,7 @@ const PlacesToGo = () => {
         <div className="ptgWrapper">
             <div className="ptgWrapperRow">
                 <div className="ptgFeatureImage">
-                    <img alt="Logo of McKing's" src="/contentpages/mckings.jpg" 
-                    width={600} height={400} />
+                    <img alt="Logo of McKing's" src="/contentpages/mckings.jpg" />
                 </div>
                 <div className="ptgFeatureDetails">
                     <div className="ptgFeatureTitle">

@@ -5,13 +5,15 @@ import DirectionsSubwayIcon from '@mui/icons-material/DirectionsSubway';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
 const PictureDiv = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
  
 const ImageCinema = styled.img`
-  width: 100%;
-  height: 300px;
+  width: 50%;
 `
 
 // ------------------------------------------
@@ -19,7 +21,6 @@ const ImageCinema = styled.img`
 const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 0px 20px;
 `
 const TitleDiv = styled.div`
   display: flex;
@@ -41,9 +42,8 @@ const MapDiv = styled.div`
 `
 
 const MapIframe = styled.iframe`
-  width: 100wh;
-  height: 300px;
-  border: 2px solid blue;
+  width: 100%;
+  height: 50em;
 `
 
 // ------------------------------------
@@ -54,8 +54,9 @@ const DirectionsDiv = styled.div`
 `
 
 const Image = styled.img`
-width: 50%;
-height: 500px;
+  width: 40em;
+  margin: 0 10em;
+  align-self: center;
 `
 
 
@@ -63,6 +64,7 @@ height: 500px;
 
 const TwoPictureDiv = styled.div`
   width: 100%;
+  display: flex;
 `
 
 // -----------------------
@@ -130,7 +132,7 @@ const Travelpage = () => {
         <FootLinksDiv>
             <LinkDiv>
               <LinkHeadingDiv>
-                  <AccessibleIcon sx={{ width: "30px", height: "30px", marginRight: "10px", color: "green" }}/>
+                  <AccessibleIcon sx={{ width: "30px", height: "30px", marginRight: "10px", color: "white" }}/>
                   <LinkTitle>Accessility</LinkTitle>
               </LinkHeadingDiv>
               <LinkDescription>
@@ -140,7 +142,7 @@ const Travelpage = () => {
 
             <LinkDiv>
               <LinkHeadingDiv>
-                  <DirectionsCarIcon  sx={{ width: "30px", height: "30px", marginRight: "10px", color: "green" }}/>
+                  <DirectionsCarIcon  sx={{ width: "30px", height: "30px", marginRight: "10px", color: "white" }}/>
                   <LinkTitle>Parking</LinkTitle>
               </LinkHeadingDiv>
               <LinkDescription>
@@ -150,7 +152,7 @@ const Travelpage = () => {
 
             <LinkDiv>
               <LinkHeadingDiv>
-                  <DirectionsSubwayIcon sx={{ width: "30px", height: "30px", marginRight: "10px", color: "green" }}/>
+                  <DirectionsSubwayIcon sx={{ width: "30px", height: "30px", marginRight: "10px", color: "white" }}/>
                   <LinkTitle>Train</LinkTitle>
               </LinkHeadingDiv>
               <LinkDescription>

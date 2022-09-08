@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 const BookingPage = () => {
   const [availableMovies, setAvailableMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState();
-  const [selectedMovieId, setSelectedMovieId] = useState('');
+  const [selectedMovieId, setSelectedMovieId] = useState();
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
-  const [numberOfSeats, setNumberOfSeats] = useState('');
-  const [ticketType, setTicketType] = useState('');
+  const [numberOfAdults, setNumberOfAdults] = useState(0);
+  const [numberOfConcessions, setNumberOfConcessions] = useState(0);
+  const [numberOfChildren, setNumberOfChildren] = useState(0);
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -18,12 +19,11 @@ const BookingPage = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const res = await axios.post('/api/booking', {
+    const res = await axios.post('http://localhost:5000/api/booking', {
       title: selectedMovie.title,
       date: selectedDate,
       time: selectedTime,
-      seats: numberOfSeats,
-      ticketType: ticketType,
+      seats: [`adults: ${numberOfAdults}`, `concessions: ${numberOfConcessions}`, `children: ${numberOfChildren}`],
       name: name,
       paid: 'false',
     });
@@ -65,6 +65,7 @@ const BookingPage = () => {
               <select required onChange={(e) => setSelectedMovieId(e.target.value)} value={selectedMovie && selectedMovie._id}>
                 <option value=''>-Select a Movie-</option>
                 {availableMovies.map(movie => (
+                  ((Date.now() - new Date(Date.parse(movie.dateReleased))) >= 0) &&
                   <option key={movie._id} value={movie._id}>{movie.title}</option> // Display all available movies as options
                 ))}
               </select>
@@ -83,49 +84,40 @@ const BookingPage = () => {
                         <option key={i} value={showtimes}>{showtimes}</option> // Map all showtimes for movie in db
                       ))}
                   </select>
-                
-                  <label htmlFor='seats'>No. of Seats:</label>
-                  <input
-                    required
-                    type='number'
-                    placeholder='Enter no. of seats...'
-                    id='seats'
-                    value={numberOfSeats}
-                    onChange={(e) => setNumberOfSeats(e.target.value)}
-                  />
-                  
-                  <p>Please select your ticket type:</p>
                   
                   <div className="ticketType">
 
                     <label htmlFor='adult'>Adult</label>
                     <input
                       required
-                      type='radio'
+                      type='number'
+                      min="0"
                       id='adult'
                       name='ticketType'
-                      value='adult'
-                      onChange={(e) => setTicketType(e.target.value)}
+                      value={numberOfAdults}
+                      onChange={(e) => setNumberOfAdults(e.target.value)}
                     />
 
                     <label htmlFor='child'>Child</label>
                     <input
                       required
-                      type='radio'
+                      type='number'
+                      min="0"
                       id='child'
                       name='ticketType'
-                      value='child'
-                      onChange={(e) => setTicketType(e.target.value)}
+                      value={numberOfChildren}
+                      onChange={(e) => setNumberOfChildren(e.target.value)}
                     />
 
                     <label htmlFor='concession'>Concession</label>
                     <input
                       required
-                      type='radio'
+                      type='number'
+                      min="0"
                       id='concession'
                       name='ticketType'
-                      value='concession'
-                      onChange={(e) => setTicketType(e.target.value)}
+                      value={numberOfConcessions}
+                      onChange={(e) => setNumberOfConcessions(e.target.value)}
                     />
                         
                   </div>

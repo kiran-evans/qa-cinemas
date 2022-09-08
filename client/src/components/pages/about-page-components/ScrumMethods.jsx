@@ -1,7 +1,7 @@
 const ScrumMethods = () => {
     return (
         <div className="scrumMethods">
-            <h1>Scrum</h1>
+            <h2>Scrum</h2>
 
             <p>The scrum framework is iteritive and will produce a potentially shippable increment at the end of every sprint. A sprint is a time-boxed event in which selected product development activities take place. These sprints will run one after another until the product no longer needs development.</p>
 
@@ -11,9 +11,9 @@ const ScrumMethods = () => {
             
             <p>Each sprint aims to create a potentially shippable increment. Due to the framework being iterative, this means that developers will continuously add functionality onto previous iterations of the product, therefore adding value.</p>
 
-            <h2>Roles</h2>
+            <h3>Roles</h3>
 
-            <h3>Development Team</h3>
+            <h4>Development Team</h4>
 
             <p>The Developers are committed to creating any aspect of a usable Increment each Sprint. The Developers include anyone who works to create the product, whatever skillset they may have.</p>
 
@@ -21,7 +21,7 @@ const ScrumMethods = () => {
 
             <p>They are accountable for how the product is developed and for the technical quality of the product.</p>
 
-            <h3>Scrum Master</h3>
+            <h4>Scrum Master</h4>
 
             <p>The Scrum Master is accountable for establishing Scrum and helping everyone understand and use it, both within the Scrum Team and the organisation.</p>
 
@@ -29,9 +29,9 @@ const ScrumMethods = () => {
 
             <p>The Scrum Master is accountable for effectiveness, for how people use Scrum and interact and collaborate to deliver value.</p>
 
-            <h2>Sprint Meetings</h2>
+            <h3>Sprint Meetings</h3>
 
-            <h3>Sprint Planning</h3>
+            <h4>Sprint Planning</h4>
 
             <p>This meeting is held at the start of each sprint. This should be timeboxed to 8 hours for a month-long sprint (this can be scaled down for smaller sprint). The entirety of the Scrum Team attends this meeting.</p>
 
@@ -39,7 +39,7 @@ const ScrumMethods = () => {
 
             <p>The result of Sprint Planning is a Sprint Backlog that details the work to be carried out in the Sprint. This includes a plan of how it will be Done and a Sprint Goal that explains why the work is valuable.</p>
 
-            <h3>Daily Scrum</h3>
+            <h4>Daily Scrum</h4>
 
             <p>This is a meeting held at the start of every working day, timeboxed to 15 minutes. It is sometimes referred to as the daily standup.</p>
 
@@ -52,6 +52,31 @@ const ScrumMethods = () => {
                 <li>What will I do today to help meet the Sprint Goal?</li>
                 <li>Do I see any future impediments that prevents the team from meeting the Sprint Goal?</li>
             </ul>
+
+            <h4>Sprint Review</h4>
+            <p>This meeting is held at the end of each Sprint, and is timeboxed to 4 hours for a month-long sprint. The Scrum Team and stakeholders attend.</p>
+
+            <p>The purpose is to inspect the Increment, progress towards the Product Goal and to adapt the Product Backlog to include new insights.</p>
+
+            <p>During this meeting, the following are typically discussed:</p>
+            <ul>
+                <li>The development team demonstrate what work was done, and answer any questions.</li>
+                <li>The product owner discusses the Product Backlog as it stands.</li>
+                <li>The entire group collaborates on what to do next, to provide valuable input to subsequent Sprint Planning.</li>
+            </ul>
+            
+            <h4>Sprint Retrospective</h4>
+            <p>The Sprint Retrospective is held at the end of each Sprint, after the Sprint Review and is timeboxed to 3 hours for a month-long sprint. The entirety of the Scrum Team attends.</p>
+
+            <p>The purpose is to identify and plan improvements to increase effectiveness. During the event, the Scrum Team inspect how the last Sprint went with regards to individuals, interactions, processes, tools, and their Definition of Done in order to plan the improvements.</p>
+
+            <p>Things to discuss during the retrospective are:</p>
+            <ul>
+                <li>Inspect how the last Sprint went in all aspects; people, process, and tools.</li>
+                <li>Identify what went well and what could be improved in subsequent sprints.</li>
+                <li>Create a plan to make these improvements in a way which the Scrum Team can both appreciate and implement into their work patterns.</li>
+            </ul>
+
         </div>
     )
 }

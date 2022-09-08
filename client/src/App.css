@@ -322,7 +322,7 @@ img.logo {
 }
 
 .movieCard {
-  flex: 0 0 20em;
+  flex: 0 0 25em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -345,13 +345,13 @@ img.logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1% 0;
+  margin: 0.5em 0;
 }
 
 .moviePoster img {
   border: 0.1em solid white;
-  height: 22.5em;
-  width: 15em;
+  height: 30em;
+  width: 20em;
   object-fit: cover;
 }
 
@@ -484,9 +484,22 @@ img.logo {
 
 /* Classifications page */
 
+.classifications {
+  width: 50%;
+}
+
+.classifications li {
+  margin-top: 5em;
+  list-style-type: square;
+}
+
 .classifications img {
   width: 2.5em;
   margin: 0 1em;
+}
+
+.classifications p {
+  margin-top: 0.2em;
 }
 
 /* Contact Form */
@@ -641,6 +654,10 @@ img.travelinfo {
   text-align: center;
 }
 
+#homeQuoteAuthor {
+  text-align: center;
+}
+
 #homeIntro {
   display: table;
   width: 1500px;
@@ -649,11 +666,11 @@ img.travelinfo {
   display: table-row;
 }
 
-#introImage {
+#homeIntroImage {
   display: table-cell;
   width: 500px;
 }
-#introText{
+#homeIntroText{
   display: table-cell;
   width: 800px;
   text-align: left;
@@ -669,17 +686,17 @@ img.travelinfo {
 #homeWrapperRow {
   display: table-row;
 }
-#feature1 {
+#homeFeature1 {
   display: table-cell;
   width: 500px;
   text-align: center;
 }
-#feature2 {
+#homeFeature2 {
   display: table-cell;
   width: 500px;
   text-align: center;
 }
-#feature3 {
+#homeFeature3 {
   display: table-cell;
   width: 500px;
   text-align: center;
@@ -688,6 +705,14 @@ img.travelinfo {
 .focus {
   color: springgreen;
   font-weight: bold;
+}
+
+img#popcorn {
+  width: 20em;
+}
+
+img#sound {
+  width: 30em;
 }
 
 /* Booking Form */
@@ -719,10 +744,15 @@ img.travelinfo {
 
 .ticketType {
   display: flex;
+  margin-top: 2em;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .ticketType input {
-  margin-right: 1em;
+  margin: 0 1em;
+  align-self: center;
+  width: 2em;
 }
 
 .bookingForm button {
@@ -730,18 +760,136 @@ img.travelinfo {
   margin-top: 1em;
 }
 
-.bookingForm p {
-  margin-top: 2em;
-  margin-bottom: 0;
+/* PlacesToGo */
+
+.ptg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ptgTitle {
+  text-align: center;
+  font-weight: bold;
+}
+
+.ptgSubtitle {
+  text-align: center;
+}
+
+.ptgWrapper {
+  width: 50%;
+  display: flex;
+  padding: 1em;
+  border-top: 0.1em solid skyblue;
+}
+.ptgWrapperRow {
+  display: flex;
+  align-items: center;
+}
+
+.ptgFeatureImage img {
+  width: 40em;
+  margin-right: 3em;
+}
+
+.ptgFeatureDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.ptgFeatureTitle {
+  color: springgreen;
+  font-size: large;
+  text-align: justify;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+/* Screens */
+
+.screensTitle {
+  text-align: center;
+}
+
+.screenSubtitle {
+  text-align: center;
+}
+
+.screensContainer {
+  text-align: center;
+}
+
+.screensImageWrapper {
+  display: table;
+  width: 1500px;
+}
+.screensImageRow {
+  display: table-row;
+}
+
+.screensImage1 {
+  display: table-cell;
+  width: 700px;
+}
+
+.screensImage2 {
+  display: table-cell;
+  width: 700px;
+}
+
+.screensDetailsWrapper {
+  display: table;
+  width: 1500px;
+  text-align: center;
+  ;
+}
+
+.screensDetailsRow{
+  display: table-row;
+}
+
+.screensDetails1 {
+  float: left;
+  display: table-cell;
+  width: 700px;
+  text-align: center;
+  vertical-align: top;
+  margin: 10px;
+  color: white;
+}
+
+.screensDetails2 {
+  display: table-cell;
+  width: 700px;
+  text-align: center;
+  vertical-align: top;
+  margin: 10px;
 }
 
 /* About Page */
 
 .aboutUs {
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .testimonials {
   display: flex;
   justify-content: center;
+}
+
+.scrumMethods {
+  width: 60%;
+}
+
+/* Payment Page */
+select#discussionDropDown {
+  margin-bottom: 1em;
+}
+
+input[placeholder='Name on Booking...'] {
+  margin-bottom: 0.8em;
 }

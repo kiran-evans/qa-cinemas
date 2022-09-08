@@ -4,11 +4,11 @@ const {
   getForms,
   getFormByID,
   setForm,
-  updateForm,
+  // updateForm,
   deleteForm,
 } = require('../controller/contactFormController');
 
 router.route('/').get(getForms).post(setForm);
-router.route('/:id').delete(deleteForm).put(updateForm).get(getFormByID);
+router.route('/:id').delete(deleteForm).get(getFormByID);
 
 module.exports = router;

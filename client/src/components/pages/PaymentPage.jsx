@@ -11,6 +11,7 @@ const PaymentPage = () => {
     const [bookingName, setBookingName] = useState('');
 
     const [userBooking, setUserBooking] = useState('');
+    const [entered, setEntered] = useState(false);
     
     const [holdersName, setHoldersName] = useState('');
     const [cardNumber, setCardNumber] = useState('');
@@ -22,13 +23,16 @@ const PaymentPage = () => {
 
     
     const searchForBooking = () => {
-        console.log(Object.keys(selectedMovie));
-        console.log(bookingName);
         axios
             .get(`http://localhost:5000/api/booking/${selectedMovie}/${bookingName}`)
             .then(res => {
                 console.log(res);
+                if (!res) {
+                    setUserBooking('');
+                    return null;
+                }
                 setUserBooking(res.data[0]);
+                setEntered(true);
             })
             .catch(err => console.log(err));
     };
@@ -54,6 +58,7 @@ const PaymentPage = () => {
     // passed to printer to allow a user to choose another booking
     const resetter = () => {
         setUserBooking('');
+        setEntered(false);
     }
 
     const refresher = () => {
@@ -76,7 +81,10 @@ const PaymentPage = () => {
             <div>
                 {(!userBooking) && <select id="discussionDropDown" onChange={(e) => setSelectedMovie(e.target.value)}>
                     <option value=''>-What Movie are you seeing?-</option>
-                    {availableMovies.map(movie => <option key={movie._id} value={movie.title}>{movie.title}</option>)}
+                    {availableMovies.map(movie => (
+                        ((Date.now() - new Date(Date.parse(movie.dateReleased))) >= 0) &&
+                        <option key={movie._id} value={movie.title}>{movie.title}</option>
+                    ))}
                 </select>}
 
                 {(selectedMovie && !userBooking) && 
@@ -84,13 +92,19 @@ const PaymentPage = () => {
                         <input type="text" placeholder='Name on Booking...' onChange={(e) => setBookingName(e.target.value)}/>
                         <button type="button" onClick={() => searchForBooking()}>Find my booking</button>
                     </div>}
+
+                {(entered && !userBooking) && <p>No booking found matching those details!</p>}
                 
                 {(userBooking) && <BookingPrinter booking={userBooking} resetOption={resetter} submitState={submitState}/>}
 
                 <br /> <br />
-                {/* <Displayusers booking component /> */}
-                {(userBooking.paid === false) &&
-                <form onSubmit={(event) => submitHandler(event)}>
+                
+                {/* nested ternary to display the correct output based on a set of condition */}
+                {(!userBooking) ? null : 
+                    (userBooking.paid) ? <h2>This booking has been paid for!</h2> :
+                    <>
+                    <h3>Greetings, {userBooking.name}! Please enter your payment details below.</h3>
+                    <form onSubmit={(event) => submitHandler(event)}>
                     <input type="text" id="holderNameInput" required placeholder="Cardholder Name." value={holdersName} onChange={(e) => setHoldersName(e.target.value)}/>
                     <br /> <br />
                     <input type="text" id="cardNumInput" required placeholder="Card Number." value={cardNumber} onChange={(e) => setCardNumber(e.target.value)}/>
@@ -101,8 +115,9 @@ const PaymentPage = () => {
                     <br /> <br />
                     
                     <button type="submit">Submit</button>
-                </form>}
-                {(userBooking.paid) && <h2>This booking has been paid for!</h2>}
+                </form>
+                </>}
+
             </div>
             <PaymentSuccess subState={submitState} refresher={refresher}/>
         </div>

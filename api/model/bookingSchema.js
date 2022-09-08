@@ -15,11 +15,7 @@ const bookingSchema = mongoose.Schema(
       required: true,
     },
     seats: {
-      type: Number,
-      required: true,
-    },
-    ticketType: {
-      type: String,
+      type: Array,
       required: true,
     },
     name: {

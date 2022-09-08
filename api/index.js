@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 // ----------------------
 //THIS LINE DICTATES WHAT DB YOU USE!
 // FOR TESTING -> path: './config/testconfig.env'  // FOR DEV DB -> path: './config/config.env'
-const configPath = './config/config.env';
+const configPath = './config/testconfig.env';
 dotenv.config({ path: configPath }); 
 // ----------------------
 

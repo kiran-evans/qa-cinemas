@@ -28,7 +28,7 @@ const setBooking = asyncHandler(async (req, res) => {
     name: req.body.name,
     paid: req.body.paid,
   });
-  res.status(200).json(schema);
+  res.status(201).json(schema);
 });
 
 const updateBooking = asyncHandler(async (req, res) => {
@@ -56,7 +56,7 @@ const deleteBooking = asyncHandler(async (req, res) => {
 
   await schema.remove();
 
-  res.status(200).json({ id: req.params.id });
+  res.status(204).json();
 });
 
 module.exports = {

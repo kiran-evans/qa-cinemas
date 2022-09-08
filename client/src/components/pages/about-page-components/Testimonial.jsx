@@ -1,42 +1,49 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Button } from '@mui/material';
 
 const OuterDiv= styled.div`
     display: flex;
     align-items: center;
-    border: 2px solid green;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 25px;
-    width: 280px;
-    height: 280px;
+    border: 0.2em solid springgreen;
+    border-radius: 2em;
+    margin: 0 1em;
+    padding: 2.4em 1.8em;
 `
 const ImageDiv = styled.div`
 `
 const Image = styled.img`
-    height: 125px;
-    width: 125px;
-    border-radius: 75%;
+    width: 8em;
+    height: 8em; 
+    object-fit: cover;
+    border: 0.2em solid springgreen;
+    border-radius: 100%;
 `
 const InnerDiv = styled.div`
+    width: 10em;
     display: flex;
     flex-direction: column;
-    margin: 5px;
+    align-items: center;
 `
 const Name = styled.h3`
     color: white;
+    margin-bottom: 0.2em;
 `
 
 const Text = styled.p`
     display: flex;
-    flex-wrap: wrap;
-    font-size: 15px;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0.3em 0;
 `
 
 const LinkTo = styled.a`
-    text-decoration: none;
-    color: red;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: springgreen;
+    margin: 1em 0;
 `
 const Testimonial = ({data}) => {
     return (
@@ -44,8 +51,7 @@ const Testimonial = ({data}) => {
             <OuterDiv>
 
                 <ImageDiv>
-                    <Image src={data.image}>
-                </Image>
+                    <Image src={data.image} />
                 </ImageDiv>
                 
 
@@ -57,7 +63,7 @@ const Testimonial = ({data}) => {
                         {data.text}
                     </Text>
 
-                    <Button><LinkTo href={data.gitLink} target={"_blank"} >GitHub</LinkTo></Button>
+                    <LinkTo href={data.gitLink} target={"_blank"} >GitHub</LinkTo>
                     
                 </InnerDiv>
 

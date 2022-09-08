@@ -81,7 +81,10 @@ const PaymentPage = () => {
             <div>
                 {(!userBooking) && <select id="discussionDropDown" onChange={(e) => setSelectedMovie(e.target.value)}>
                     <option value=''>-What Movie are you seeing?-</option>
-                    {availableMovies.map(movie => <option key={movie._id} value={movie.title}>{movie.title}</option>)}
+                    {availableMovies.map(movie => (
+                        ((Date.now() - new Date(Date.parse(movie.dateReleased))) >= 0) &&
+                        <option key={movie._id} value={movie.title}>{movie.title}</option>
+                    ))}
                 </select>}
 
                 {(selectedMovie && !userBooking) && 

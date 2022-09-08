@@ -39,8 +39,9 @@ const ClassificationsPage = () => {
                 <a href="https://www.bbfc.co.uk/rating/18" target="_blank" rel="noreferrer noopener" title="Visit 18 rating on the BBFC Website">
                     <img src={"/classifications/18.png"} alt="Symbol for 18 rating" />
                 </a>
+                <p>No one younger than 18 may see an 18 film in a cinema. No one younger than 18 may rent or buy an 18 rated video work. Adults should be free to choose their own entertainment.</p>
             </li>
-            <p>No one younger than 18 may see an 18 film in a cinema. No one younger than 18 may rent or buy an 18 rated video work. Adults should be free to choose their own entertainment.</p>
+            
         </ul>
     </div>
 

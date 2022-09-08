@@ -27,18 +27,15 @@ const Home = () => {
             <div id="homeWrapperRow">
                 <div id="homeFeature1">
                     <h3>All your favourite movies, all from the comfort of <span className="focus">luxury seating</span>, all shown in <span className="focus">4K HD 144hz.</span></h3>
-                    <img alt="QA Cinema" src="https://media.istockphoto.com/photos/empty-cinema-screen-with-audience-picture-id453554783?b=1&k=20&m=453554783&s=170667a&w=0&h=-V2SSq4NvamNI9EEEHpw_MPrnizXzGGWdB_5BN8Dh5o=" 
-                    width={450} height={300}/>
+                    <img id="cinema" alt="QA Cinema" src="https://media.istockphoto.com/photos/empty-cinema-screen-with-audience-picture-id453554783?b=1&k=20&m=453554783&s=170667a&w=0&h=-V2SSq4NvamNI9EEEHpw_MPrnizXzGGWdB_5BN8Dh5o=" />
                 </div>
                 <div id="homeFeature2">    
                     <h3>Decadence-level snacks and refreshments, delivered by <span className="focus">professional, lifelike synthetics.</span></h3>
-                    <img alt="Synthetic Staff" src="https://thumbs.dreamstime.com/b/happy-worker-holding-popcorn-drink-cinema-portrait-female-concession-counter-47348907.jpg" 
-                    width={350} height={300} />
+                    <img id="popcorn" alt="Synthetic Staff" src="https://thumbs.dreamstime.com/b/happy-worker-holding-popcorn-drink-cinema-portrait-female-concession-counter-47348907.jpg" />
                 </div>
                 <div id="homeFeature3">
                     <h3>Experience the patented <span className="focus">QA 5D Soundscape</span> that puts you right in the centre of the action. </h3>
-                    <img alt="QA 5D Soundscape" src="https://i.pinimg.com/originals/1b/c2/3d/1bc23d34ecee7afe338d9f18034fe51d.jpg" 
-                    width={450} height={300}/>
+                    <img id="sound" alt="QA 5D Soundscape" src="https://i.pinimg.com/originals/1b/c2/3d/1bc23d34ecee7afe338d9f18034fe51d.jpg" />
                 </div>
         
             </div>

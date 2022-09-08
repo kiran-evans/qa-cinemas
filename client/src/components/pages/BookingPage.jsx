@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BookingPage = () => {
   const [availableMovies, setAvailableMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState();
-  const [selectedMovieId, setSelectedMovieId] = useState('');
+  const [selectedMovieId, setSelectedMovieId] = useState();
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [numberOfAdults, setNumberOfAdults] = useState(0);
@@ -65,6 +65,7 @@ const BookingPage = () => {
               <select required onChange={(e) => setSelectedMovieId(e.target.value)} value={selectedMovie && selectedMovie._id}>
                 <option value=''>-Select a Movie-</option>
                 {availableMovies.map(movie => (
+                  ((Date.now() - new Date(Date.parse(movie.dateReleased))) >= 0) &&
                   <option key={movie._id} value={movie._id}>{movie.title}</option> // Display all available movies as options
                 ))}
               </select>

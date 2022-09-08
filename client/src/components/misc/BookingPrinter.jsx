@@ -8,8 +8,8 @@ const BookingPrinter = ({booking, resetOption, submitState}) => {
             <h4>{title}</h4>
             <h4>{new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' }).format(Date.parse(date))} @ {time}</h4>
             <h4>Seats:</h4>
-            {seats.map(seat => (
-                <h4>{seat}</h4>
+            {seats.map((seat, i) => (
+                <h4 key={i}>{seat}</h4>
             ))}
             {(!submitState) && <button type="button" onClick={() => resetOption()}>That's not my booking.</button>}
         </div>

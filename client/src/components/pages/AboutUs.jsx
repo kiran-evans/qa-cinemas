@@ -6,9 +6,8 @@ const About = () => {
 
     return (
         <div className="aboutUs">
+            <h1>About Us</h1>
             <MeetTheTeam />
-
-            <h2>Scrum Process</h2>
             <ScrumMethods />
             <a href="https://www.scrum.org/" rel="noreferrer noopener" target="_blank" title="Go to Scrum.org"><button>Scrum.org</button></a>
         </div>

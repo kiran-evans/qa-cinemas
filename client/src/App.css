@@ -322,7 +322,7 @@ img.logo {
 }
 
 .movieCard {
-  flex: 0 0 20em;
+  flex: 0 0 25em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -345,13 +345,13 @@ img.logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1% 0;
+  margin: 0.5em 0;
 }
 
 .moviePoster img {
   border: 0.1em solid white;
-  height: 22.5em;
-  width: 15em;
+  height: 30em;
+  width: 20em;
   object-fit: cover;
 }
 
@@ -484,9 +484,22 @@ img.logo {
 
 /* Classifications page */
 
+.classifications {
+  width: 50%;
+}
+
+.classifications li {
+  margin-top: 5em;
+  list-style-type: square;
+}
+
 .classifications img {
   width: 2.5em;
   margin: 0 1em;
+}
+
+.classifications p {
+  margin-top: 0.2em;
 }
 
 /* Contact Form */
@@ -694,6 +707,14 @@ img.travelinfo {
   font-weight: bold;
 }
 
+img#popcorn {
+  width: 20em;
+}
+
+img#sound {
+  width: 30em;
+}
+
 /* Booking Form */
 
 .bookings {
@@ -741,6 +762,12 @@ img.travelinfo {
 
 /* PlacesToGo */
 
+.ptg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .ptgTitle {
   text-align: center;
   font-weight: bold;
@@ -751,23 +778,24 @@ img.travelinfo {
 }
 
 .ptgWrapper {
-  display: table;
-  width: 1500px;
+  width: 50%;
+  display: flex;
+  padding: 1em;
+  border-top: 0.1em solid skyblue;
 }
 .ptgWrapperRow {
-  display: table-row;
+  display: flex;
+  align-items: center;
 }
 
-.ptgFeatureImage {
-  display: table-cell;
-  width: 600px;
+.ptgFeatureImage img {
+  width: 40em;
+  margin-right: 3em;
 }
 
 .ptgFeatureDetails {
-  display: table-cell;
-  width: 800px;
-  text-align: left;
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
 }
 
 .ptgFeatureTitle {
@@ -843,9 +871,25 @@ img.travelinfo {
 
 .aboutUs {
   width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .testimonials {
   display: flex;
   justify-content: center;
+}
+
+.scrumMethods {
+  width: 60%;
+}
+
+/* Payment Page */
+select#discussionDropDown {
+  margin-bottom: 1em;
+}
+
+input[placeholder='Name on Booking...'] {
+  margin-bottom: 0.8em;
 }
